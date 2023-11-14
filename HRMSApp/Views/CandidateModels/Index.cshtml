@@ -1,0 +1,113 @@
+﻿@model IEnumerable<HRMSApp.Models.CandidateModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidate_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date_of_Brith)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email_Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mobile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Alternate_Mobile)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidate_Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Id_Proof)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Qualifications)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Experience)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Department)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Job_Role)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Candidate_Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.interview_Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Result)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Candidate_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date_of_Brith)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email_Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mobile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Alternate_Mobile)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Candidate_Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id_Proof)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qualifications)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Experience)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Job_Role)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Candidate_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.interview_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Result)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
