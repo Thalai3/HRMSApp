@@ -1,0 +1,191 @@
+﻿@model HRMSApp.Models.Candidate
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>CandidateModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <h5>Basic Details</h5>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="@Model.Candidate_Name" class="control-label">Name</label>
+                        <input asp-for="@Model.Candidate_Name" class="form-control" />
+                        <span asp-validation-for="@Model.Candidate_Name" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="from-group">
+                        <label asp-for="@Model.Gender" calss="control-label"></label>
+                        <input asp-for="@Model.Gender" class="form-control" />
+                        <span asp-validation-for="@Model.Gender" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="@Model.Date_of_Brith" class="control-label">Date Of Brith</label>
+                        <input asp-for="@Model.Date_of_Brith" class="form-control" />
+                        <span asp-validation-for="@Model.Date_of_Brith" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="from-group">
+                        <label asp-for="@Model.Email_Address" calss="control-label">Email</label>
+                        <input asp-for="@Model.Email_Address" class="form-control" />
+                        <span asp-validation-for="@Model.Email_Address" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="@Model.Mobile" class="control-label"></label>
+                        <input asp-for="@Model.Mobile" class="form-control" />
+                        <span asp-validation-for="@Model.Mobile" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="from-group">
+                        <label asp-for="@Model.Alternate_Mobile" calss="control-label">Alternate Mobile</label>
+                        <input asp-for="@Model.Alternate_Mobile" class="form-control" />
+                        <span asp-validation-for="@Model.Alternate_Mobile" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="@Model.Id_Proof" class="control-label"> ID Proof</label>
+                        <input asp-for="@Model.Id_Proof" class="form-control" />
+                        <span asp-validation-for="@Model.Id_Proof" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="from-group">
+                        <label asp-for="@Model.Department" calss="control-label">Department</label>
+                        <input asp-for="@Model.Department" class="form-control" />
+                        <span asp-validation-for="@Model.Department" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="from-group">
+                        <label asp-for="@Model.interview_Date" calss="control-label">interview Date</label>
+                        <input asp-for="@Model.interview_Date" class="form-control" />
+                        <span asp-validation-for="@Model.interview_Date" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label asp-for="@Model.Candidate_Address" class="control-label">Address</label>
+                        <textarea type="text" asp-for="@Model.Candidate_Address" class="form-control"></textarea>
+                        <span asp-validation-for="@Model.Candidate_Address" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    @*  <div class="form-group">
+                    <label asp-for="@Model.Id_Proof" class="control-label"></label>
+                    <input asp-for="@Model.Id_Proof" class="form-control" />
+                    <span asp-validation-for="@Model.Id_Proof" class="text-danger"></span>
+                    </div> *@
+                </div>
+                <div class="col-md-2">
+                    @* <div class="from-group">
+                    <label asp-for="@Model.Department" calss="control-label"></label>
+                    <input asp-for="@Model.Department" class="form-control" />
+                    <span asp-validation-for="@Model.Department" class="text-danger"></span>
+                    </div> *@
+                </div>
+            </div>
+            <br />
+            <h5>Qualification</h5>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="from-group">
+                        <label calss="control-label">Education</label>
+                        <input class="form-control" />
+                        <span class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">Year Of Passing</label>
+                        <input class="form-control" />
+                        <span class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">Percentage</label>
+                        <input class="form-control" />
+                        <span class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    @* <div class="from-group">
+                    <label asp-for="@Model.Department" calss="control-label"></label>
+                    <input asp-for="@Model.Department" class="form-control" />
+                    <span asp-validation-for="@Model.Department" class="text-danger"></span>
+                    </div> *@
+                </div>
+            </div>
+            <br />
+            <h5>Experience</h5>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="from-group">
+                        <label calss="control-label">Education</label>
+                        <input class="form-control" />
+                        <span class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">Year Of Passing</label>
+                        <input type="date" class="form-control" />
+                        <span class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="control-label">Percentage</label>
+                        <input class="form-control" />
+                        <span class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    @* <div class="from-group">
+                    <label asp-for="@Model.Department" calss="control-label"></label>
+                    <input asp-for="@Model.Department" class="form-control" />
+                    <span asp-validation-for="@Model.Department" class="text-danger"></span>
+                    </div> *@
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+            <br />
+            @* <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div> *@
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

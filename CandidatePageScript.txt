@@ -1,0 +1,61 @@
+ 
+
+-----------Dynamically increase the Input fields by using button-------------Jqurey Script
+
+$(document).ready(function () {
+     var experiencesContainer = $('#experiencesContainer');
+     var experienceGroupTemplate = $('.experience-group:first').clone(); // Clone the first row as a template
+
+     $('#addExperience').on('click', function () {
+         var newExperienceGroup = experienceGroupTemplate.clone(); // Clone the template
+         experiencesContainer.append(newExperienceGroup);
+     });
+
+     var educationContainer = $('#educationContainer');
+     var educationGroupTemplate = $('.education-group:first').clone(); // Clone the first row as a template
+
+     $('#addEducation').on('click', function () {
+        var newEducationGroup = educationGroupTemplate.clone(); // Clone the template
+        educationContainer.append(newEducationGroup);
+     });
+ });
+
+
+
+----------Wuth Undo Script------------
+
+ $(document).ready(function () {
+
+    var experiencesContainer = $('#experiencesContainer');
+    var experienceGroupTemplate = $('.experience-group:first').clone(); // Clone the first row as a template
+    var addedExperienceGroups = []; // To keep track of added experience groups
+
+   $('#addExperience').on('click', function () {
+     var newExperienceGroup = experienceGroupTemplate.clone(); // Clone the template
+     experiencesContainer.append(newExperienceGroup);
+     addedExperienceGroups.push(newExperienceGroup); // Add the new group to the tracking array
+   });
+
+    var educationContainer = $('#educationContainer');
+    var educationGroupTemplate = $('.education-group:first').clone(); // Clone the first row as a template
+    var addedEducationGroups = []; // To keep track of added education groups
+
+   $('#addEducation').on('click', function () {
+     var newEducationGroup = educationGroupTemplate.clone(); // Clone the template
+     educationContainer.append(newEducationGroup);
+     addedEducationGroups.push(newEducationGroup); // Add the new group to the tracking array
+   });
+
+   $('#undoexp').on('click', function () {
+     // Undo last addition in experiences
+     if (addedExperienceGroups.length > 0) {
+         addedExperienceGroups.pop().remove();
+     }                 
+   });
+   $('#undoedu').on('click', function () {                   
+     // Undo last addition in education
+     if (addedEducationGroups.length > 0) {
+         addedEducationGroups.pop().remove();
+     }
+   });
+ });

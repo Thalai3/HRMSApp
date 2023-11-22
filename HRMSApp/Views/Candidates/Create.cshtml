@@ -1,0 +1,275 @@
+﻿@model HRMSApp.ViewModels.CandidateDetails
+
+<h5>New Candidate</h5>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <h5>Basic Details</h5>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="@Model.Candidate.Candidate_Name" class="control-label">Name</label>
+                        <input asp-for="@Model.Candidate.Candidate_Name" class="form-control" />
+                        <span asp-validation-for="@Model.Candidate.Candidate_Name" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="from-group">
+                        <label asp-for="@Model.Candidate.Gender" calss="control-label">Gender</label>
+                        <input asp-for="@Model.Candidate.Gender" class="form-control" />
+                        <span asp-validation-for="@Model.Candidate.Gender" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="@Model.Candidate.Date_of_Brith" class="control-label">Date Of Brith</label>
+                        <input asp-for="@Model.Candidate.Date_of_Brith" class="form-control" />
+                        <span asp-validation-for="@Model.Candidate.Date_of_Brith" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="from-group">
+                        <label asp-for="@Model.Candidate.Email_Address" calss="control-label">Email</label>
+                        <input asp-for="@Model.Candidate.Email_Address" class="form-control" />
+                        <span asp-validation-for="@Model.Candidate.Email_Address" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="@Model.Candidate.Mobile" class="control-label"></label>
+                        <input asp-for="@Model.Candidate.Mobile" class="form-control" />
+                        <span asp-validation-for="@Model.Candidate.Mobile" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="from-group">
+                        <label asp-for="@Model.Candidate.Alternate_Mobile" calss="control-label">Alternate Mobile</label>
+                        <input asp-for="@Model.Candidate.Alternate_Mobile" class="form-control" />
+                        <span asp-validation-for="@Model.Candidate.Alternate_Mobile" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="@Model.Candidate.Id_Proof" class="control-label"> ID Proof</label>
+                        <input asp-for="@Model.Candidate.Id_Proof" class="form-control" />
+                        <span asp-validation-for="@Model.Candidate.Id_Proof" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="dropdown">                        
+                         <label asp-for="@Model.Candidate.Department" calss="control-label">Department</label>
+                         <select asp-for="@Model.Candidate.Department" class="form-control" data-bs-toggle="dropdown">
+                                <option  value="">--Select Department--</option>
+                                @foreach (var Dep in ViewBag.Department as List<string>)
+                                {
+                                    <option value="@Dep">@Dep</option>
+                                }
+                         </select>
+                         <span asp-validation-for="@Model.Candidate.Department" class="text-danger"></span>                                              
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="from-group">
+                        <label asp-for="@Model.Candidate.interview_Date" calss="control-label">interview Date</label>
+                        <input asp-for="@Model.Candidate.interview_Date" class="form-control" />
+                        <span asp-validation-for="@Model.Candidate.interview_Date" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="form-group">
+                        <label asp-for="@Model.Candidate.Candidate_Address" class="control-label">Address</label>
+                        <textarea type="text" asp-for="@Model.Candidate.Candidate_Address" class="form-control"></textarea>
+                        <span asp-validation-for="@Model.Candidate.Candidate_Address" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label asp-for="@Model.Candidate.Job_Role" class="control-label">JobRole</label>
+                        <input asp-for="@Model.Candidate.Job_Role" class="form-control" />
+                        <span asp-validation-for="@Model.Candidate.Job_Role" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    @* <div class="from-group">
+                        <label asp-for="@Model.Department" calss="control-label"></label>
+                        <input asp-for="@Model.Department" class="form-control" />
+                        <span asp-validation-for="@Model.Department" class="text-danger"></span>
+                    </div> *@
+                </div>
+            </div>
+            <br />
+            <h5>Qualification</h5><button type="button" class="btn btn-warning" id="addEducation"><i class="fa-solid fa-plus fa-beat"></i></button>
+            <button type="button" class="btn btn-danger" id="undoedu"><i class="fa-solid fa-minus"></i></button>
+            <div id="educationContainer">
+                @for (var i = 0; i < Model.CandidateEducation.Count; i++)
+                {
+                    <div class="row education-group">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="CandidateEducation[i].Education"></label>
+                                <input asp-for="CandidateEducation[i].Education" class="form-control" />
+                                <span asp-validation-for="CandidateEducation[i].Education" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="CandidateEducation[i].Year_Of_Passing">Year Of Passing</label>
+                                <input asp-for="CandidateEducation[i].Year_Of_Passing" class="form-control" />
+                                <span asp-validation-for="CandidateEducation[i].Year_Of_Passing" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="CandidateEducation[i]._Percentage">Percentage</label>
+                                <input asp-for="CandidateEducation[i]._Percentage" class="form-control" />
+                                <span asp-validation-for="CandidateEducation[i]._Percentage" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            @* <div class="form-group">
+                                <label asp-for="CandidateEducation[i].Expected_CTC"></label>
+                                <input asp-for="CandidateEducation[i].Expected_CTC" class="form-control" />
+                            </div> *@
+                        </div>
+                        <!-- Other CandidateExperience fields... -->
+                    </div>
+                }
+            </div>
+            <br />
+            <h5>Experience</h5><button type="button" class="btn btn-info" id="addExperience"><i class="fa-solid fa-plus fa-beat"></i></button>
+            <button type="button" class="btn btn-danger" id="undoexp"><i class="fa-solid fa-minus"></i></button>
+            <div id="experiencesContainer">
+                @for (var i = 0; i < Model.CandidateExperience.Count; i++)
+                {
+                    <div class="row experience-group">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="CandidateExperience[i].Domain">Job Role</label>
+                                <input asp-for="CandidateExperience[i].Domain" class="form-control" />
+                               @*  <span asp-validation-for="CandidateExperience[i].Domain" class="text-danger"></span> *@
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="CandidateExperience[i].Year_Of_Experience">Year's Of Experience</label>
+                                <input asp-for="CandidateExperience[i].Year_Of_Experience" class="form-control" />
+                                @* <span asp-validation-for="CandidateExperience[i].Domain" class="text-danger"></span> *@
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="CandidateExperience[i].Current_CTC">Current CTC</label>
+                                <input asp-for="CandidateExperience[i].Current_CTC" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="CandidateExperience[i].Expected_CTC">Expected CTC</label>
+                                <input asp-for="CandidateExperience[i].Expected_CTC" class="form-control" />
+                            </div>
+                        </div>
+                        <!-- Other CandidateExperience fields... -->
+                    </div>
+                }  
+            </div>
+            <br />
+            <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+            <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+            <script>
+            $(document).ready(function () {
+                var experiencesContainer = $('#experiencesContainer');
+                var experienceGroupTemplate = $('.experience-group:first').clone(); // Clone the first row as a template
+                var addedExperienceGroups = []; // To keep track of added experience groups
+
+                $('#addExperience').on('click', function () {
+                    // Validate existing fields before adding a new row
+                    if (validateExperienceFields(addedExperienceGroups)) {
+                        var newExperienceGroup = experienceGroupTemplate.clone(); // Clone the template
+                        experiencesContainer.append(newExperienceGroup);
+                        addedExperienceGroups.push(newExperienceGroup); // Add the new group to the tracking array
+                    } else {
+                        alert('Please fill in all required fields in the existing experience section.');
+                    }
+                });
+
+                var educationContainer = $('#educationContainer');
+                var educationGroupTemplate = $('.education-group:first').clone(); // Clone the first row as a template
+                var addedEducationGroups = []; // To keep track of added education groups
+
+                $('#addEducation').on('click', function () {
+                    // Validate existing fields before adding a new row
+                    if (validateEducationFields(addedEducationGroups)) {
+                        var newEducationGroup = educationGroupTemplate.clone(); // Clone the template
+                        educationContainer.append(newEducationGroup);
+                        addedEducationGroups.push(newEducationGroup); // Add the new group to the tracking array
+                    } else {
+                        alert('Please fill in all required fields in the existing education section.');
+                    }
+                });
+
+                $('#undoexp').on('click', function () {
+                    // Undo last addition in experiences
+                    if (addedExperienceGroups.length > 0) {
+                        addedExperienceGroups.pop().remove();
+                    }
+                });
+
+                $('#undoedu').on('click', function () {
+                    // Undo last addition in education
+                    if (addedEducationGroups.length > 0) {
+                        addedEducationGroups.pop().remove();
+                    }
+                });
+
+                function validateExperienceFields(groups) {
+                    // Loop through each group and check if required fields are filled
+                    for (var i = 0; i < groups.length; i++) {
+                        var currentGroup = groups[i];
+                        var requiredInputs = currentGroup.find('.required'); // Add a "required" class to your required fields
+
+                        for (var j = 0; j < requiredInputs.length; j++) {
+                            if ($(requiredInputs[j]).val() === '') {
+                                return { isValid: false, message: 'Please fill in all required fields.' };
+                            }
+                        }
+                    }
+                    return { isValid: true };
+                }
+
+                function validateEducationFields(groups) {
+                    // Loop through each group and check if required fields are filled
+                    for (var i = 0; i < groups.length; i++) {
+                        var currentGroup = groups[i];
+                        var requiredInputs = currentGroup.find('.required'); // Add a "required" class to your required fields
+
+                        for (var j = 0; j < requiredInputs.length; j++) {
+                            if ($(requiredInputs[j]).val() === '') {
+                                return { isValid: false, message: 'Please fill in all required fields.' };
+                            }
+                        }
+                    }
+                    return { isValid: true };
+                }
+               
+            });
+
+            </script>
+    </div>
+</div>
+ 
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

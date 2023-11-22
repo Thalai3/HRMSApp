@@ -13,6 +13,7 @@ builder.Services.AddDbContext<HrmsAppDbContext>(options => options.UseSqlServer
 
 var app = builder.Build();
 
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -30,6 +31,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=CandidateModels}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

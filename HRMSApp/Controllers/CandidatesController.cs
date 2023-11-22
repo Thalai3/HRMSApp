@@ -1,41 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using HRMSApp.Models;
+using HRMSApp.ViewModels;
 
 namespace HRMSApp.Controllers
 {
-    public class CandidateModelsController : Controller
+    public class CandidatesController : Controller
     {
         private readonly HrmsAppDbContext _context;
 
-        public CandidateModelsController(HrmsAppDbContext context)
+        public CandidatesController(HrmsAppDbContext context)
         {
             _context = context;
         }
-
-        // GET: CandidateModels
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
               return _context.Candidates != null ? 
-                          View(await _context.Candidates.ToListAsync()) :
-                          Problem("Entity set 'HrmsAppDbContext.Candidates'  is null.");
+              View( _context.Candidates.ToList()) : Problem("Entity set 'HrmsAppDbContext.Candidates'  is null.");
         }
-
-        // GET: CandidateModels/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public IActionResult Details(int? id)
         {
             if (id == null || _context.Candidates == null)
             {
                 return NotFound();
             }
 
-            var candidateModel = await _context.Candidates
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var candidateModel =_context.Candidates
+                .FirstOrDefault(m => m.Id == id);
             if (candidateModel == null)
             {
                 return NotFound();
@@ -43,38 +34,74 @@ namespace HRMSApp.Controllers
 
             return View(candidateModel);
         }
-
-        // GET: CandidateModels/Create
         public IActionResult Create()
         {
-            return View();
-        }
+            var Department = _context.tbl_Department.Select(D => D.Department).ToList(); 
+            ViewBag.Department = Department;  
 
-        // POST: CandidateModels/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+            var candidate = new CandidateDetails
+            {
+                Candidate = new Candidate(),
+                CandidateExperience = new List<CandidateExperience> { new CandidateExperience() },
+                CandidateEducation = new List<CandidateEducation> { new CandidateEducation() }
+            };
+            return View(candidate);
+        }
+        
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Candidate_Name,Date_of_Brith,Email_Address,Mobile,Alternate_Mobile,Candidate_Address,Id_Proof,Qualifications,Experience,Department,Job_Role,Candidate_Id,interview_Date,Result")] CandidateModel candidateModel)
+        public IActionResult Create(Candidate candidateModel)
         {
+
+            //candidateModel.Candidate_Name ="Thalai";
+            //candidateModel.Candidate_Id = "Tha_123_00";
+
             if (ModelState.IsValid)
             {
                 _context.Add(candidateModel);
-                await _context.SaveChangesAsync();
+                _context.SaveChanges();
+
+                if(candidateModel.CandidateEducation != null)
+                {
+                    foreach (var education in candidateModel.CandidateEducation)
+                    {
+                        education.CandidateId = candidateModel.Id;
+                        _context.tbl_CandidateQualification.Add(education);
+                    }
+                }
+
+                if (candidateModel.CandidateExperience != null)
+                {
+                    foreach (var experience in candidateModel.CandidateExperience)
+                    {
+                        experience.CandidateId = candidateModel.Id;
+                        _context.tbl_CandidateExperience.Add(experience);
+                    }
+                }
+
+                TempData["success"] = "Candidate Added Successfully";
+
                 return RedirectToAction(nameof(Index));
             }
             return View(candidateModel);
         }
+        public IActionResult Input()
+        {
 
-        // GET: CandidateModels/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+            var viewModel = new Candidate
+            {
+                //Candidate = new Candidate(),
+                CandidateExperience = new List<CandidateExperience> { new CandidateExperience() }
+            };
+            return View(viewModel);
+        }
+        public IActionResult Edit(int? id)
         {
             if (id == null || _context.Candidates == null)
             {
                 return NotFound();
             }
 
-            var candidateModel = await _context.Candidates.FindAsync(id);
+            var candidateModel = _context.Candidates.Find(id);
             if (candidateModel == null)
             {
                 return NotFound();
@@ -82,12 +109,8 @@ namespace HRMSApp.Controllers
             return View(candidateModel);
         }
 
-        // POST: CandidateModels/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Candidate_Name,Date_of_Brith,Email_Address,Mobile,Alternate_Mobile,Candidate_Address,Id_Proof,Qualifications,Experience,Department,Job_Role,Candidate_Id,interview_Date,Result")] CandidateModel candidateModel)
+        public async Task<IActionResult> Edit(int id,Candidate candidateModel)
         {
             if (id != candidateModel.Id)
             {
@@ -100,6 +123,7 @@ namespace HRMSApp.Controllers
                 {
                     _context.Update(candidateModel);
                     await _context.SaveChangesAsync();
+                    TempData["warning"] = " Candidate Update Successfully";
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -117,7 +141,6 @@ namespace HRMSApp.Controllers
             return View(candidateModel);
         }
 
-        // GET: CandidateModels/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Candidates == null)

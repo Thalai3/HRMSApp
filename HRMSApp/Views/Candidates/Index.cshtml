@@ -1,58 +1,61 @@
-﻿@model IEnumerable<HRMSApp.Models.CandidateModel>
+﻿@model IEnumerable<HRMSApp.Models.Candidate>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h5>Candidates</h5>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-info"><i class="fa-solid fa-plus fa-beat"></i></a>
+    @* <a asp-action="Input" class="btn btn-info"><i class="fa-solid fa-plus fa-beat"></i></a> *@
 </p>
-<table class="table">
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align:center;
+    }
+</style>
+<table id="table" class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Candidate_Name)
+                Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Date_of_Brith)
+                Date Of Brith
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Email_Address)
+               Email
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Mobile)
+               Mobile
             </th>
-            <th>
+            @* <th>
                 @Html.DisplayNameFor(model => model.Alternate_Mobile)
+            </th> *@
+            @* <th>
+               Address
+            </th> *@
+            <th>
+               ID Proof
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Candidate_Address)
+               Department
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Id_Proof)
+               JobRole
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Qualifications)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Experience)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Department)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Job_Role)
-            </th>
-            <th>
+           @*  <th>
                 @Html.DisplayNameFor(model => model.Candidate_Id)
+            </th> *@
+            <th>
+               Interview Date
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.interview_Date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Result)
+               Status
             </th>
             <th></th>
         </tr>
@@ -72,20 +75,14 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Mobile)
             </td>
-            <td>
+          @*   <td>
                 @Html.DisplayFor(modelItem => item.Alternate_Mobile)
-            </td>
-            <td>
+            </td> *@
+            @* <td>
                 @Html.DisplayFor(modelItem => item.Candidate_Address)
-            </td>
+            </td> *@
             <td>
                 @Html.DisplayFor(modelItem => item.Id_Proof)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Qualifications)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Experience)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Department)
@@ -93,9 +90,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Job_Role)
             </td>
-            <td>
+           @*  <td>
                 @Html.DisplayFor(modelItem => item.Candidate_Id)
-            </td>
+            </td> *@
             <td>
                 @Html.DisplayFor(modelItem => item.interview_Date)
             </td>
@@ -103,11 +100,17 @@
                 @Html.DisplayFor(modelItem => item.Result)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary"><i class="fa-solid fa-pen fa-bounce"></i></a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info"><i class="fa-solid fa-user fa-shake"></i></a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="fa-solid fa-circle-xmark fa-fade"></i></a>
             </td>
         </tr>
 }
     </tbody>
 </table>
+@section Scripts{
+    <script>
+        $('.table').DataTable();
+    </script>
+}
+

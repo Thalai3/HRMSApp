@@ -1,4 +1,4 @@
-﻿@model HRMSApp.Models.CandidateModel
+﻿@model HRMSApp.Models.Candidate
 
 @{
     ViewData["Title"] = "Details";
@@ -51,18 +51,6 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Id_Proof)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Qualifications)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Qualifications)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Experience)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Experience)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Department)
