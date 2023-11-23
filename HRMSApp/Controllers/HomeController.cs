@@ -1,4 +1,4 @@
-﻿using HRMSApp.Models;
+﻿using HRMS.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 

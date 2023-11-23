@@ -1,5 +1,5 @@
 ﻿
-namespace HRMSApp.Models
+namespace HRMS.Models
 {
     public class Candidate
     {

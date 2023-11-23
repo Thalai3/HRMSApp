@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using HRMS.DataAccess.Data;
+using HRMS.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using HRMSApp.Models;
-using HRMSApp.ViewModels;
+
+
 
 namespace HRMSApp.Controllers
 {
@@ -39,9 +41,9 @@ namespace HRMSApp.Controllers
             var Department = _context.tbl_Department.Select(D => D.Department).ToList(); 
             ViewBag.Department = Department;  
 
-            var candidate = new CandidateDetails
+            var candidate = new Candidate
             {
-                Candidate = new Candidate(),
+                //Candidate = new Candidate(),
                 CandidateExperience = new List<CandidateExperience> { new CandidateExperience() },
                 CandidateEducation = new List<CandidateEducation> { new CandidateEducation() }
             };

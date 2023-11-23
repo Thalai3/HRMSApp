@@ -1,4 +1,4 @@
-using HRMSApp.Models;
+using HRMS.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

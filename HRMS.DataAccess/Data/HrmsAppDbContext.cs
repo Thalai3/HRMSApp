@@ -1,16 +1,17 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Hosting;
+﻿using HRMS.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace HRMSApp.Models
+
+namespace HRMS.DataAccess.Data
 {
-    public class HrmsAppDbContext:DbContext
+    public class HrmsAppDbContext : DbContext
     {
-        public HrmsAppDbContext(DbContextOptions<HrmsAppDbContext> options):base(options) 
+        public HrmsAppDbContext(DbContextOptions<HrmsAppDbContext> options) : base(options)
         {
-            
+
         }
 
-        public DbSet<Candidate> Candidates{ get; set; }
+        public DbSet<Candidate> Candidates { get; set; }
         public DbSet<Qualifications> tbl_Qualification { get; set; }
         public DbSet<Experiences> tbl_Experience { get; set; }
         public DbSet<Departments> tbl_Department { get; set; }
@@ -21,6 +22,7 @@ namespace HRMSApp.Models
         public DbSet<CandidateExperience> tbl_CandidateExperience { get; set; }
 
         public DbSet<CandidateEducation> tbl_CandidateQualification { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -35,7 +37,7 @@ namespace HRMSApp.Models
                .WithOne(p => p.Candidate)
                .HasForeignKey(p => p.CandidateId);
         }
-       
-       
+
+
     }
 }
