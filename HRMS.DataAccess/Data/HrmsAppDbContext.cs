@@ -16,6 +16,7 @@ namespace HRMS.DataAccess.Data
         public DbSet<Experiences> tbl_Experience { get; set; }
         public DbSet<Departments> tbl_Department { get; set; }
         public DbSet<JobRoles> tbl_JobRole { get; set; }
+        public DbSet<Uploadfiles> tbl_CandidateDocument { get; set; }
 
 
         // Adding Subtable relationship using onModelCreating Class

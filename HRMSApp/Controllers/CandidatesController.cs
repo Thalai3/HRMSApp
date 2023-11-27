@@ -10,10 +10,11 @@ namespace HRMSApp.Controllers
     public class CandidatesController : Controller
     {
         private readonly HrmsAppDbContext _context;
-
-        public CandidatesController(HrmsAppDbContext context)
+        private readonly IWebHostEnvironment _webcontext;
+        public CandidatesController(HrmsAppDbContext context, IWebHostEnvironment webcontext)
         {
             _context = context;
+            _webcontext = webcontext;   
         }
         public IActionResult Index()
         {
@@ -39,7 +40,16 @@ namespace HRMSApp.Controllers
         public IActionResult Create()
         {
             var Department = _context.tbl_Department.Select(D => D.Department).ToList(); 
-            ViewBag.Department = Department;  
+            ViewBag.Department = Department;
+
+            //var Experience = _context.tbl_Experience.Select(D => D.Year_Of_Experience).ToList();
+            //ViewBag.Experience = Experience;
+
+            //var Jobrole = _context.tbl_JobRole.Select(D => D.JobRole).ToList();
+            //ViewBag.Jobrole = Jobrole;
+
+            //var Qualification = _context.tbl_Qualification.Select(D => D.Education).ToList();
+            //ViewBag.Qualification = Qualification;
 
             var candidate = new Candidate
             {
@@ -55,7 +65,7 @@ namespace HRMSApp.Controllers
         {
 
             //candidateModel.Candidate_Name ="Thalai";
-            //candidateModel.Candidate_Id = "Tha_123_00";
+            candidateModel.Candidate_Id = "Tha_123_00";
 
             if (ModelState.IsValid)
             {

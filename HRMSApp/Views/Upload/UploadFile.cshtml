@@ -1,0 +1,35 @@
+﻿@model Uploadfiles
+
+@{
+    ViewData["Title"] = "UploadFile";
+}
+
+<h5>Candidate Document Upload</h5>
+<div class="row">
+    <div class="col-md-12">
+        <form method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="CandidateId"></label>                      
+                        <input asp-for="CandidateId" class="form-control"/>
+                        <span asp-validation-for="CandidateId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label asp-for="Upload" class="form-label"></label>
+                        <input type="file" name="files" id="formFile" class="form-control"/>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-3">
+                    <br />
+                    <button type="submit" class="btn btn-primary">Upload</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+</div>

@@ -1,4 +1,4 @@
-﻿@model Candidate
+@model Candidate
 
 <h5>New Candidate</h5>
 <hr />

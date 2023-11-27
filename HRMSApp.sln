@@ -5,11 +5,11 @@ VisualStudioVersion = 17.7.34221.43
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRMSApp", "HRMSApp\HRMSApp.csproj", "{AF2E293A-141D-4ABB-90CD-FBA639B09FCD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRMS.Models", "HRMS.Models\HRMS.Models.csproj", "{CBBDAB01-1562-47AA-BC4F-06828E85FEB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRMS.Models", "HRMS.Models\HRMS.Models.csproj", "{CBBDAB01-1562-47AA-BC4F-06828E85FEB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRMS.DataAccess", "HRMS.DataAccess\HRMS.DataAccess.csproj", "{686FE7E8-ECB4-4D96-AA73-A04FDD892D50}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRMS.DataAccess", "HRMS.DataAccess\HRMS.DataAccess.csproj", "{686FE7E8-ECB4-4D96-AA73-A04FDD892D50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRMS.Utility", "HRMS.Utility\HRMS.Utility.csproj", "{9186967F-07E5-4B93-B200-D3CDD06B244A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HRMS.Utility", "HRMS.Utility\HRMS.Utility.csproj", "{9186967F-07E5-4B93-B200-D3CDD06B244A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

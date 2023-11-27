@@ -1,4 +1,7 @@
-﻿
+﻿using System.ComponentModel.DataAnnotations;
+using System.Diagnostics;
+using System.Reflection;
+
 namespace HRMS.Models
 {
     public class Candidate
@@ -20,6 +23,7 @@ namespace HRMS.Models
         public List<CandidateExperience> CandidateExperience { get; set; }
         public List<CandidateEducation> CandidateEducation { get; set; } 
         public Candidate(){}
+
     }   
     public class CandidateExperience
     {
@@ -80,12 +84,13 @@ namespace HRMS.Models
         public string Email { get; set; }
         public string Password { get; set; }
     }
-    public class Blog
+    public class Uploadfiles
     {
-        public int BlogId { get; set; }
-        public string Title { get; set; }
+        public int Id { get; set; }
+        public string CandidateId { get; set; }
+        public string? Upload { get; set; }
+        public string? Is_Active { get; set; }
 
-        // Navigation property
-        //public List<tbl_CandidateExperience> Posts { get; set; }
     }
+
 }
