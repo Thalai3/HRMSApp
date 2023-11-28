@@ -55,15 +55,15 @@ namespace HRMS.Models
     public class Qualifications
     { 
         public int Id { get; set; }
-        public string Education { get; set; }
+        public string Qualification { get; set; }
         public string year_Of_Passing { get; set; }
         public string Percentage { get; set; }
     }
     public class Experiences
     {
         public int Id { get; set; }
-        public string Deparment { get; set; }
-        public string Year_Of_Experience  { get; set; }
+        public string Department { get; set; }
+        public string Experience  { get; set; }
         public string CTC { get; set; }
     }
     public class Departments

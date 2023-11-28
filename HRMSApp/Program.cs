@@ -1,4 +1,6 @@
 using HRMS.DataAccess.Data;
+using HRMS.DataAccess.Repository;
+using HRMS.DataAccess.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +12,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<HrmsAppDbContext>(options => options.UseSqlServer
 (builder.Configuration.GetConnectionString("DbConnection")));
 
+//Add Service for Reposiotory
+builder.Services.AddScoped<ICandidateRepository,CandidateRepository>();
 
 var app = builder.Build();
 
