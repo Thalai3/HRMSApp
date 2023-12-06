@@ -7,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace HRMS.DataAccess.Repository.IRepository
 {
-    public interface ICandidateRepository:IRepository<Candidate>
+    public interface IUserRepository:IRepository<User>
     {
-        void Update(Candidate obj);          
+        void Update(User user);
     }
-
 }

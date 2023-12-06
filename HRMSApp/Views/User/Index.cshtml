@@ -1,0 +1,98 @@
+﻿@model IEnumerable<User>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<h5>User</h5>
+
+<p>
+    <a asp-action="Create" class="btn btn-info"><i class="fa-solid fa-plus fa-beat"></i></a>
+    @* <a asp-action="Input" class="btn btn-info"><i class="fa-solid fa-plus fa-beat"></i></a> *@
+</p>
+
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+    }
+</style>
+<table id="table" class="table">
+    <thead>
+        <tr>
+            <th>
+                UserName
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+               Name
+            </th>
+            <th>
+                Mobile
+            </th>           
+            <th>
+                Status
+            </th>
+            <th>
+                User Type
+            </th>
+            <th>
+                Blood Group
+            </th>
+   @*          @*  <th>
+            @Html.DisplayNameFor(model => model.Candidate_Id)
+            </th> 
+            <th>
+                Interview Date
+            </th>
+            <th>
+                Status
+            </th> *@
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mobile)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BloodGroup)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary"><i class="fa-solid fa-pen fa-bounce"></i></a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info"><i class="fa-solid fa-user fa-shake"></i></a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="fa-solid fa-circle-xmark fa-fade"></i></a>
+                    <a asp-controller="Upload" asp-action="UploadFile" asp-route-id="@item.Id" class="btn btn-primary"><i class="fa-solid fa-pen"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@section Scripts{
+    <script>
+        $('.table').DataTable();
+    </script>
+}
+

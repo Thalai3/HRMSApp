@@ -9,17 +9,16 @@ namespace HRMSApp.Controllers
 {
     public class CandidatesController : Controller
     {
-        private readonly ICandidateRepository candidateRepo;
+        private readonly IUnitOfWork _unitOfWork;
        
-        public CandidatesController(ICandidateRepository _candidateRepo)
+        public CandidatesController(IUnitOfWork unitOfWork)
         {
-            candidateRepo = _candidateRepo;
-              
+            _unitOfWork = unitOfWork;    
         }
         public IActionResult Index()
         {
-              return candidateRepo.GetAll()!= null ? 
-              View(candidateRepo.GetAll().ToList()) : Problem("Entity set 'HrmsAppDbContext.Candidates'  is null.");
+              return _unitOfWork.candidate.GetAll()!= null ? 
+              View(_unitOfWork.candidate.GetAll().ToList()) : Problem("Entity set 'HrmsAppDbContext.Candidates'  is null.");
         }
         public IActionResult Details(int? id)
         {
@@ -28,7 +27,7 @@ namespace HRMSApp.Controllers
                 return NotFound();
             }
 
-            var candidateModel = candidateRepo.Get(D => D.Id == id);
+            var candidateModel = _unitOfWork.candidate.Get(D => D.Id == id);
 
             if (candidateModel == null)
             {
@@ -69,8 +68,8 @@ namespace HRMSApp.Controllers
 
             if (ModelState.IsValid)
             {
-                candidateRepo.Add(candidateModel);
-                candidateRepo.Save();
+                _unitOfWork.candidate.Add(candidateModel);
+                _unitOfWork.Save();
 
                 if (candidateModel.CandidateEducation != null)
                 {
@@ -113,7 +112,7 @@ namespace HRMSApp.Controllers
                 return NotFound();
             }
 
-            var candidateModel = candidateRepo.Get(E => E.Id == id);
+            var candidateModel = _unitOfWork.candidate.Get(E => E.Id == id);
 
             if (candidateModel == null)
             {
@@ -134,8 +133,8 @@ namespace HRMSApp.Controllers
             {
                 try
                 {
-                    candidateRepo.Update(candidateModel);
-                    candidateRepo.Save();
+                    _unitOfWork.candidate.Update(candidateModel);
+                    _unitOfWork.Save();
                     TempData["warning"] = " Candidate Update Successfully";
                 }
                 catch (DbUpdateConcurrencyException)
@@ -161,7 +160,7 @@ namespace HRMSApp.Controllers
                 return NotFound();
             }
 
-            var candidateModel = candidateRepo.Get(E => E.Id == id);
+            var candidateModel = _unitOfWork.candidate.Get(E => E.Id == id);
 
             if (candidateModel == null)
             {
@@ -180,14 +179,14 @@ namespace HRMSApp.Controllers
             //{
             //    return Problem("Entity set 'HrmsAppDbContext.Candidates'  is null.");
             //}
-            var candidateModel = candidateRepo.Get(E => E.Id == id);
+            var candidateModel = _unitOfWork.candidate.Get(E => E.Id == id);
 
             if (candidateModel != null)
             {
-                candidateRepo.Remove(candidateModel);
+                _unitOfWork.candidate.Remove(candidateModel);
             }
             
-            candidateRepo.Save();
+            _unitOfWork.Save();
 
             return RedirectToAction(nameof(Index));
         }

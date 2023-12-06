@@ -24,6 +24,7 @@ namespace HRMS.DataAccess.Data
 
         public DbSet<CandidateEducation> tbl_CandidateQualification { get; set; }
 
+        public DbSet<User> tbl_User { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -35,7 +36,7 @@ namespace HRMS.DataAccess.Data
 
             modelBuilder.Entity<Candidate>()
                .HasMany(b => b.CandidateEducation)
-               .WithOne(p => p.Candidate)
+               .WithOne(p => p.Candidate) 
                .HasForeignKey(p => p.CandidateId);
         }
 

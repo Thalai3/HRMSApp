@@ -13,7 +13,8 @@ builder.Services.AddDbContext<HrmsAppDbContext>(options => options.UseSqlServer
 (builder.Configuration.GetConnectionString("DbConnection")));
 
 //Add Service for Reposiotory
-builder.Services.AddScoped<ICandidateRepository,CandidateRepository>();
+//builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IUnitOfWork,UnitOfWork>();
 
 var app = builder.Build();
 

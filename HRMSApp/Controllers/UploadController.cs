@@ -23,8 +23,8 @@ namespace HRMSApp.Controllers
             return View();
         }
 
-        public IActionResult UploadFile(int id)
-        
+
+        public IActionResult UploadFile(int id)        
         {
             var candidateId = _context.Candidates.FirstOrDefault(x => x.Id == id);
             return View(candidateId);  
@@ -61,6 +61,7 @@ namespace HRMSApp.Controllers
             }
             
             return View(uploadfiles);
+
         }
     }
 }
