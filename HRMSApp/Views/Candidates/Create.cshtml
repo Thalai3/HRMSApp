@@ -1,11 +1,22 @@
 ﻿@model Candidate
 
-<h5>New Candidate</h5>
-<hr />
 <div class="row">
     <div class="col-md-12">
         <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="row position-sticky">
+                    <div class="col-md-11">
+                        <h5 style="margin-left:790px">New Candidate</h5>
+                    </div>
+                    <div class="col-md-1">
+                        <button type="submit" class="btn btn-primary w-50">Save</button>
+                        <a asp-controller="Candidates" asp-action="Index" class="btn btn-success float-end">Users</a>
+                    </div>
+                </div>
+                <hr />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <h5 style="margin-left:790px">Candidate Details</h5>
+                <br />
+            <div class="container">
             <h5>Basic Details</h5>
             <div class="row">
                 <div class="col-md-3">
@@ -196,7 +207,8 @@
                 }  
             </div>
             <br />
-            <button type="submit" class="btn btn-primary">Create</button>
+            @* <button type="submit" class="btn btn-primary">Create</button> *@
+            </div>
         </form>
             <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
             <script>
@@ -282,10 +294,8 @@
             </script>
     </div>
 </div>
- 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

@@ -4,62 +4,60 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HRMSApp.Controllers
 {
-    public class UserController : Controller
+    public class StateController : Controller
     {
         private readonly IUnitOfWork _db;
-        public UserController(IUnitOfWork unitOfWork)
+        public StateController(IUnitOfWork unitOfWork)
         {
             _db = unitOfWork;
-        }       
+        }
         public IActionResult Index()
         {
-            var User = _db.user.GetAll().ToList();
+            var User = _db.state.GetAll().ToList();
 
             return View(User);
         }
-       
+
         public IActionResult Create()
         {
             return View();
         }
-        public IActionResult CreateUser(User user)
+        public IActionResult CreateUser(StateMaster stateMaster)
         {
+            stateMaster.CreatedDateTime = DateTime.Now;
 
-            user.UserName = user.FirstName+" "+user.LastName;
-            user.CreatedDateTime = DateTime.Now;    
-
-            _db.user.Add(user);
+            _db.state.Add(stateMaster);
             _db.Save();
 
             TempData["success"] = "Candidate Added Successfully";
 
-            return RedirectToAction("Index");  
+            return RedirectToAction("Index");
 
             //return View(user);  
         }
-        public IActionResult EditUser(int? id) 
+        public IActionResult EditUser(int? id)
         {
-            if(id == null || id == 0)
-            {
-                return NotFound();  
-            }
-
-            var user =_db.user.Get(U => U.Id == id);
-
-            if(user == null)
+            if (id == null || id == 0)
             {
                 return NotFound();
             }
-        
+
+            var user = _db.state.Get(U => U.Id == id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
             return View(user);
         }
         [HttpPost]
-        public IActionResult EditUser(User user) 
+        public IActionResult EditUser(StateMaster stateMaster)
         {
-            user.UserName = user.FirstName + " " + user.LastName;
-            user.ModifiedDateTime = DateTime.Now; 
-            
-            _db.user.Update(user);
+
+            stateMaster.ModifiedDateTime = DateTime.Now;
+
+            _db.state.Update(stateMaster);
             _db.Save();
 
             return RedirectToAction("Index");
@@ -70,17 +68,17 @@ namespace HRMSApp.Controllers
         //[ValidateAntiForgeryToken]
         public IActionResult Remove(int id)
         {
-            var User = _db.user.Get(E => E.Id == id);
+            var User = _db.state.Get(E => E.Id == id);
 
             if (User != null)
             {
-                _db.user.Remove(User);
+                _db.state.Remove(User);
             }
 
             _db.Save();
 
-            return RedirectToAction("Index");           
+            return RedirectToAction("Index");
         }
-
     }
 }
+

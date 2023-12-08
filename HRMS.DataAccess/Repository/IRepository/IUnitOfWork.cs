@@ -11,6 +11,10 @@ namespace HRMS.DataAccess.Repository.IRepository
 
         ICandidateRepository candidate{ get; }
         IUserRepository user { get; }
+        IStatusRepo status { get; }
+        IStateRepo state { get; }
+        IRoleRepo role { get; }
+        ICityRepo city { get; }
         void Save();
     }
 }

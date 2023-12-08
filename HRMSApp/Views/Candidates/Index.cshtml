@@ -3,14 +3,16 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<h5>Candidates</h5>
-
-<p>
-    <a asp-action="Create" class="btn btn-info"><i class="fa-solid fa-plus fa-beat"></i></a>
-    @* <a asp-action="Input" class="btn btn-info"><i class="fa-solid fa-plus fa-beat"></i></a> *@
-</p>
-
+<div class="row position-sticky">
+    <div class="col-md-11">
+        <h5 style="margin-left:790px">Candidates</h5>
+    </div>
+    <div class="col-md-1">
+        @* <button type="submit" class="btn btn-primary w-50">Save</button> *@
+        <a asp-controller="Candidates" asp-action="Create" class="btn btn-success float-end">Create</a>
+    </div>
+</div>
+<hr />
 <style>
     table, th, td {
         border: 1px solid black;
@@ -102,10 +104,10 @@
                 @Html.DisplayFor(modelItem => item.Result)
             </td>
             <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary"><i class="fa-solid fa-pen fa-bounce"></i></a>
-                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info"><i class="fa-solid fa-user fa-shake"></i></a>
-                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="fa-solid fa-circle-xmark fa-fade"></i></a>
-                    <a asp-controller="Upload" asp-action="UploadFile" asp-route-id="@item.Id" class="btn btn-primary"><i class="fa-solid fa-pen"></i></a>
+                 <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary"><i class="fa-solid fa-pen fa-bounce"></i></a>
+                 <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info"><i class="fa-solid fa-user fa-shake"></i></a>
+                 <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger"><i class="fa-solid fa-circle-xmark fa-fade"></i></a>
+                 <a asp-controller="Upload" asp-action="UploadFile" asp-route-id="@item.Id" class="btn btn-primary"><i class="fa-solid fa-pen"></i></a>
             </td>
         </tr>
 }

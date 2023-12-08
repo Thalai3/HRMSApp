@@ -49,4 +49,66 @@ namespace HRMS.Models
         public DateTime ModifiedDateTime { get; set; }
 
     }
+
+    public class StatusMaster
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        public string Status { get; set; }
+        public bool IsActive { get; set; }
+        public int? CreatedBy { get; set; }
+        public int? ModifiedBy { get; set; }
+
+        [DataType(DataType.DateTime)]
+        public DateTime CreatedDateTime { get; set; }
+        [DataType(DataType.DateTime)]
+        public DateTime ModifiedDateTime { get; set; }
+    }
+    public class RoleMaster
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        public string Role { get; set; }
+        public bool IsActive { get; set; }
+        public int? CreatedBy { get; set; }
+        public int? ModifiedBy { get; set; }
+
+        [DataType(DataType.DateTime)]
+        public DateTime CreatedDateTime { get; set; }
+        [DataType(DataType.DateTime)]
+        public DateTime ModifiedDateTime { get; set; }
+    }
+    public class StateMaster
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        public string State { get; set; }
+        public bool IsActive { get; set; }
+        public int? CreatedBy { get; set; }
+        public int? ModifiedBy { get; set; }
+
+        [DataType(DataType.DateTime)]
+        public DateTime CreatedDateTime { get; set; }
+        [DataType(DataType.DateTime)]
+        public DateTime ModifiedDateTime { get; set; }
+    }
+    public class CityMaster
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        public string City { get; set; }
+        public int SateId { get; set; }
+        public bool IsActive { get; set; }
+        public int? CreatedBy { get; set; }
+        public int? ModifiedBy { get; set; }
+
+        [DataType(DataType.DateTime)]
+        public DateTime CreatedDateTime { get; set; }
+        [DataType(DataType.DateTime)]
+        public DateTime ModifiedDateTime { get; set; }
+    }
 }

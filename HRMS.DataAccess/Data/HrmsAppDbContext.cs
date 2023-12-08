@@ -26,6 +26,14 @@ namespace HRMS.DataAccess.Data
 
         public DbSet<User> tbl_User { get; set; }
 
+        //Master
+        public DbSet<StatusMaster> tbl_StatusMaster { get; set; }
+        public DbSet<RoleMaster> tbl_RoleMaster { get; set; }
+        public DbSet<StateMaster> tbl_StateMaster { get; set; }
+        public DbSet<CityMaster> tbl_CityMaster { get; set; }
+
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Define the relationship between Blog and Post

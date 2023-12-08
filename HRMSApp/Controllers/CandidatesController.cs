@@ -38,8 +38,8 @@ namespace HRMSApp.Controllers
         }
         public IActionResult Create()
         {
-            //var Department = candidateRepo.GetAll().ToList(); 
-            //ViewBag.Department = Department;
+            var Department = _unitOfWork.user.GetAll().ToList();
+            ViewBag.Department = Department;
 
             //var Experience = _context.tbl_Experience.Select(E => E.Experience).ToList();
             //ViewBag.Experience = Experience;
