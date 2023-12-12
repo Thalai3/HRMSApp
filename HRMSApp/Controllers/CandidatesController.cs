@@ -1,4 +1,5 @@
-﻿using HRMS.DataAccess.Repository.IRepository;
+﻿using HRMS.DataAccess.Data;
+using HRMS.DataAccess.Repository.IRepository;
 using HRMS.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,15 +11,17 @@ namespace HRMSApp.Controllers
     public class CandidatesController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
-       
-        public CandidatesController(IUnitOfWork unitOfWork)
+        private readonly HrmsAppDbContext _db;
+        public CandidatesController(IUnitOfWork unitOfWork, HrmsAppDbContext db)
         {
-            _unitOfWork = unitOfWork;    
+            _unitOfWork = unitOfWork; 
+            _db = db;
         }
         public IActionResult Index()
         {
-              return _unitOfWork.candidate.GetAll()!= null ? 
-              View(_unitOfWork.candidate.GetAll().ToList()) : Problem("Entity set 'HrmsAppDbContext.Candidates'  is null.");
+              return _unitOfWork.candidate.GetAll()!= null ?
+                
+            View(_unitOfWork.candidate.GetAll().ToList()) : Problem("Entity set 'HrmsAppDbContext.Candidates'  is null.");
         }
         public IActionResult Details(int? id)
         {
@@ -38,8 +41,8 @@ namespace HRMSApp.Controllers
         }
         public IActionResult Create()
         {
-            var Department = _unitOfWork.user.GetAll().ToList();
-            ViewBag.Department = Department;
+            var user = _db.tbl_StateMaster.Where(S => S.IsActive == true).Select(E => E.State).ToList();
+            ViewBag.Department = user;
 
             //var Experience = _context.tbl_Experience.Select(E => E.Experience).ToList();
             //ViewBag.Experience = Experience;

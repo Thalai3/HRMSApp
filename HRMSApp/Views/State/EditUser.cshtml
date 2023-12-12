@@ -1,0 +1,47 @@
+﻿@model StateMaster
+@{
+    ViewData["Title"] = "EditUser";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="EditUser">
+            <div class="row position-sticky">
+                <div class="col-md-11">
+                    <h5 style="margin-left:790px">Update State</h5>
+                </div>
+                <div class="col-md-1">
+                    <button type="submit" class="btn btn-primary w-50">Save</button>
+                    <a asp-controller="State" asp-action="Index" class="btn btn-success float-end">States</a>
+                </div>
+            </div>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <h5 style="text-align:center">State Details</h5>
+            <br />
+            <div class="container justify-content-center">
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <div class="from-group">
+                            <div class="row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8">
+                                    <label asp-for="@Model.State" calss="control-label">State</label>
+                                    <input asp-for="@Model.State" required class="form-control" />
+                                    <span asp-validation-for="@Model.State" class="text-danger"></span>
+                                </div>
+                                <div class="col-md-2">
+                                    <input checked="checked" asp-for="@Model.IsActive" name="isActive" type="checkbox" value="true" style="width: 30px; height: 30px;margin-top:22px" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+                <br />
+            </div>
+        </form>
+
+    </div>
+</div>

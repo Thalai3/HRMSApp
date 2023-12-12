@@ -76,12 +76,12 @@
                          <label asp-for="@Model.Department" calss="control-label">Department</label>
                          <select asp-for="@Model.Department" class="form-control" data-bs-toggle="dropdown">
                                 <option  value="">--Select Department--</option>
-                                <option  value="Developer">Developer</option>
-                            <option value="Tester">Tester</option>
-                                @* @foreach (var Dep in ViewBag.Department as List<string>)
+                               @*  <option  value="Developer">Developer</option>
+                            <option value="Tester">Tester</option> *@
+                                @foreach (var Dep in ViewBag.Department as List<String>)
                                 {
                                     <option value="@Dep">@Dep</option>
-                                } *@
+                                }
                          </select>
                          <span asp-validation-for="@Model.Department" class="text-danger"></span>                                              
                     </div>

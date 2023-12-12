@@ -42,7 +42,7 @@ namespace HRMSApp.Controllers
                 return NotFound();
             }
 
-            var user = _db.user.Get(U => U.Id == id);
+            var user = _db.role.Get(U => U.Id == id);
 
             if (user == null)
             {

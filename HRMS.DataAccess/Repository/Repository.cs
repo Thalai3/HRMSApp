@@ -31,7 +31,7 @@ namespace HRMS.DataAccess.Repository
 
         public IEnumerable<T> GetAll()
         {
-            IQueryable<T> qurey = dbSet; 
+            IQueryable<T> qurey = dbSet;
             return qurey.ToList();
         }
 
@@ -44,6 +44,13 @@ namespace HRMS.DataAccess.Repository
         {
             dbSet.RemoveRange(entity);  
 
+        }
+
+        public IEnumerable<T> GetList(Expression<Func<T, bool>> filter)
+        {
+            IQueryable<T> qurey = dbSet;
+            qurey = qurey.Where(filter);
+            return qurey.ToList();
         }
     }
 }

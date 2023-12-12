@@ -17,5 +17,8 @@ namespace HRMS.DataAccess.Repository.IRepository
         void Remove(T entity);
         void RemoveRange(IEnumerable<T> entity);
 
+        //
+        IEnumerable<T> GetList(Expression<Func<T, bool>> filter);
+
     }
 }

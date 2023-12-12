@@ -1,0 +1,47 @@
+﻿@model CityMaster
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="CreateUser">
+            <div class="row position-sticky">
+                <div class="col-md-11">
+                    <h5 style="margin-left:790px">NewCity</h5>
+                </div>
+                <div class="col-md-1">
+                    <button type="submit" class="btn btn-primary w-50">Save</button>
+                    <a asp-controller="City" asp-action="Index" class="btn btn-success float-end">Citys</a>
+                </div>
+            </div>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <h5 style="text-align:center">City Details</h5>
+            <br />
+            <div class="container justify-content-center">
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <div class="from-group">
+                            <div class="row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8">
+                                    <label asp-for="@Model.City" calss="control-label">City</label>
+                                    <input asp-for="@Model.City" required class="form-control" />
+                                    <span asp-validation-for="@Model.City" class="text-danger"></span>
+                                </div>
+                                <div class ="col-md-2">
+                                    <input checked="checked" asp-for="@Model.IsActive" name="isActive" type="checkbox" value="true" style="width: 30px; height: 30px;margin-top:22px" />
+                                </div>
+                            </div>  
+                        </div>
+                    </div>
+                    <div class="col-md-4"></div>                  
+                </div>
+                <br />
+            </div>
+        </form>
+
+    </div>
+</div>

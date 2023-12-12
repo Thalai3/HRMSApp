@@ -27,9 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Views\City\" />
-    <Folder Include="Views\Status\" />
-    <Folder Include="Views\State\" />
+    <Folder Include="Views\NewFolder\" />
     <Folder Include="wwwroot\Document\Candidate\" />
   </ItemGroup>
 

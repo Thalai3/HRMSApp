@@ -1,4 +1,5 @@
-﻿using HRMS.DataAccess.Repository.IRepository;
+﻿using HRMS.DataAccess.Data;
+using HRMS.DataAccess.Repository.IRepository;
 using HRMS.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,9 +8,11 @@ namespace HRMSApp.Controllers
     public class UserController : Controller
     {
         private readonly IUnitOfWork _db;
-        public UserController(IUnitOfWork unitOfWork)
+        private readonly HrmsAppDbContext _tbl;
+        public UserController(IUnitOfWork unitOfWork, HrmsAppDbContext tbl)
         {
             _db = unitOfWork;
+            _tbl = tbl;
         }       
         public IActionResult Index()
         {
@@ -20,6 +23,9 @@ namespace HRMSApp.Controllers
        
         public IActionResult Create()
         {
+            var status = _tbl.tbl_StatusMaster.Where(S => S.IsActive == true).Select(E => E.Status).ToList();
+            ViewBag.status = status;
+
             return View();
         }
         public IActionResult CreateUser(User user)
@@ -43,6 +49,8 @@ namespace HRMSApp.Controllers
             {
                 return NotFound();  
             }
+            var status = _tbl.tbl_StatusMaster.Where(S => S.IsActive == true).Select(E => E.Status).ToList();
+            ViewBag.status = status;
 
             var user =_db.user.Get(U => U.Id == id);
 
