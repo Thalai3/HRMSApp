@@ -24,6 +24,7 @@
   <ItemGroup>
     <ProjectReference Include="..\HRMS.DataAccess\HRMS.DataAccess.csproj" />
     <ProjectReference Include="..\HRMS.Models\HRMS.Models.csproj" />
+    <ProjectReference Include="..\HRMS.Utility\HRMS.Utility.csproj" />
   </ItemGroup>
 
   <ItemGroup>

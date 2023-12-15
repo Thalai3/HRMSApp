@@ -1,7 +1,9 @@
 ﻿using HRMS.DataAccess.Repository.IRepository;
 using HRMS.Models;
+using HRMS.Utility;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+
 
 namespace HRMSApp.Controllers
 {
@@ -18,6 +20,7 @@ namespace HRMSApp.Controllers
         }
         public IActionResult Login(string Email,string Password)
         {
+            Password = Crypto.Encrypt(Password);
 
             var User = _db.user.Get(E =>E.Email ==Email && E.Password == Password );
 
