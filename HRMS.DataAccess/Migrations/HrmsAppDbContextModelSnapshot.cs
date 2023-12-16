@@ -80,7 +80,7 @@ namespace HRMS.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Candidates");
+                    b.ToTable("Candidates", (string)null);
                 });
 
             modelBuilder.Entity("HRMS.Models.CandidateEducation", b =>
@@ -113,7 +113,7 @@ namespace HRMS.DataAccess.Migrations
 
                     b.HasIndex("CandidateId");
 
-                    b.ToTable("tbl_CandidateQualification");
+                    b.ToTable("tbl_CandidateQualification", (string)null);
                 });
 
             modelBuilder.Entity("HRMS.Models.CandidateExperience", b =>
@@ -150,7 +150,7 @@ namespace HRMS.DataAccess.Migrations
 
                     b.HasIndex("CandidateId");
 
-                    b.ToTable("tbl_CandidateExperience");
+                    b.ToTable("tbl_CandidateExperience", (string)null);
                 });
 
             modelBuilder.Entity("HRMS.Models.CityMaster", b =>
@@ -185,7 +185,7 @@ namespace HRMS.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("tbl_CityMaster");
+                    b.ToTable("tbl_CityMaster", (string)null);
                 });
 
             modelBuilder.Entity("HRMS.Models.Departments", b =>
@@ -205,7 +205,7 @@ namespace HRMS.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("tbl_Department");
+                    b.ToTable("tbl_Department", (string)null);
                 });
 
             modelBuilder.Entity("HRMS.Models.Experiences", b =>
@@ -230,7 +230,7 @@ namespace HRMS.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("tbl_Experience");
+                    b.ToTable("tbl_Experience", (string)null);
                 });
 
             modelBuilder.Entity("HRMS.Models.JobRoles", b =>
@@ -250,7 +250,7 @@ namespace HRMS.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("tbl_JobRole");
+                    b.ToTable("tbl_JobRole", (string)null);
                 });
 
             modelBuilder.Entity("HRMS.Models.Qualifications", b =>
@@ -275,7 +275,7 @@ namespace HRMS.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("tbl_Qualification");
+                    b.ToTable("tbl_Qualification", (string)null);
                 });
 
             modelBuilder.Entity("HRMS.Models.RoleMaster", b =>
@@ -307,7 +307,7 @@ namespace HRMS.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("tbl_RoleMaster");
+                    b.ToTable("tbl_RoleMaster", (string)null);
                 });
 
             modelBuilder.Entity("HRMS.Models.StateMaster", b =>
@@ -339,7 +339,7 @@ namespace HRMS.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("tbl_StateMaster");
+                    b.ToTable("tbl_StateMaster", (string)null);
                 });
 
             modelBuilder.Entity("HRMS.Models.StatusMaster", b =>
@@ -371,7 +371,7 @@ namespace HRMS.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("tbl_StatusMaster");
+                    b.ToTable("tbl_StatusMaster", (string)null);
                 });
 
             modelBuilder.Entity("HRMS.Models.Uploadfiles", b =>
@@ -394,7 +394,7 @@ namespace HRMS.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("tbl_CandidateDocument");
+                    b.ToTable("tbl_CandidateDocument", (string)null);
                 });
 
             modelBuilder.Entity("HRMS.Models.User", b =>
@@ -461,7 +461,7 @@ namespace HRMS.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("tbl_User");
+                    b.ToTable("tbl_User", (string)null);
                 });
 
             modelBuilder.Entity("HRMS.Models.CandidateEducation", b =>
