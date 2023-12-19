@@ -59,7 +59,7 @@ namespace HRMS.DataAccess.Data
                 {
                     LeavePolicyId = 1,
                     LeavePolicys = "Casual",
-                    ShortName="CL",
+                    ShortName = "CL",
                     IsActive = true,
                     CreatedBy = 1,
                     ModifiedBy = 0,
@@ -70,7 +70,7 @@ namespace HRMS.DataAccess.Data
                 {
                     LeavePolicyId = 2,
                     LeavePolicys = "Medical",
-                    ShortName ="ML",
+                    ShortName = "ML",
                     IsActive = true,
                     CreatedBy = 1,
                     ModifiedBy = 0,
@@ -81,7 +81,7 @@ namespace HRMS.DataAccess.Data
                 {
                     LeavePolicyId = 3,
                     LeavePolicys = "Special Leave",
-                    ShortName="SL",
+                    ShortName = "SL",
                     IsActive = false,
                     CreatedBy = 1,
                     ModifiedBy = 0,
@@ -137,6 +137,88 @@ namespace HRMS.DataAccess.Data
                 }
                 );
 
+            modelBuilder.Entity<SalaryStructure>().HasData(
+               new SalaryStructure
+               {
+                   Id=1,
+                   EmployeeId ="Thlai123Dotnet",
+                   PayElementId = 1,
+                   TotalValue = 10000,
+                   Addition = 2000,
+                   Deduction = 2000,
+                   IsActive = true,
+                   CreatedBy = 1,
+                   ModifiedBy = 0,
+                   CreatedDateTime = DateTime.Now,
+                   ModifiedDateTime = null,
+               },
+               new SalaryStructure
+               {
+                   Id=2,
+                   EmployeeId = "Thlai123Dotnet",
+                   PayElementId = 2,
+                   TotalValue = 10000,
+                   Addition = 2000,
+                   Deduction = 2000,
+                   IsActive = true,
+                   CreatedBy = 1,
+                   ModifiedBy = 0,
+                   CreatedDateTime = DateTime.Now,
+                   ModifiedDateTime = null,
+               },
+               new SalaryStructure
+               {
+                   Id =3,
+                   EmployeeId = "Thlai123Dotnet",
+                   PayElementId = 2,
+                   TotalValue = 10000,
+                   Addition = 2000,
+                   Deduction = 2000,
+                   IsActive = true,
+                   CreatedBy = 1,
+                   ModifiedBy = 0,
+                   CreatedDateTime = DateTime.Now,
+                   ModifiedDateTime = null,
+               }              
+               );
+            modelBuilder.Entity<LeavePolicy>().HasData(
+               new LeavePolicy
+               {
+                   Id = 1,
+                   EmployeeId = "Thlai123Dotnet",
+                   LeavePolicyId = 1,                   
+                   NoOfDays = 2,
+                   IsActive = true,
+                   CreatedBy = 1,
+                   ModifiedBy = 0,
+                   CreatedDateTime = DateTime.Now,
+                   ModifiedDateTime = null,
+               },
+               new LeavePolicy
+               {
+                   Id = 2,
+                   EmployeeId = "Thlai123Dotnet",
+                   LeavePolicyId = 2,
+                   NoOfDays = 2,
+                   IsActive = true,
+                   CreatedBy = 1,
+                   ModifiedBy = 0,
+                   CreatedDateTime = DateTime.Now,
+                   ModifiedDateTime = null,
+               },
+               new LeavePolicy
+               {
+                   Id = 3,
+                   EmployeeId = "Thlai123Dotnet",
+                   LeavePolicyId = 3,
+                   NoOfDays = 2,
+                   IsActive = true,
+                   CreatedBy = 1,
+                   ModifiedBy = 0,
+                   CreatedDateTime = DateTime.Now,
+                   ModifiedDateTime = null,
+               }
+               );
         }
 
 

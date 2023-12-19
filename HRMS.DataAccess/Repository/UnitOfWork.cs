@@ -19,6 +19,9 @@ namespace HRMS.DataAccess.Repository
         public ICityRepo city { get; private set; }
         public IPolicyRepo policy { get; private set; }
         public ISalaryRepo salary { get; private set; }
+        public ILeavePolicyRepo leavePolicy { get; }
+        public ISalaryStructureRepo salarystructure { get; }
+
         public UnitOfWork(HrmsAppDbContext db)
         {
                 _db = db;
@@ -31,6 +34,8 @@ namespace HRMS.DataAccess.Repository
             city = new CityRepo(_db);
             policy = new PolicyRepo(_db);
             salary = new SalaryRepo(_db);
+            leavePolicy = new LeavePoilcyRepo(_db);
+            salarystructure = new SalaryStructureRepo(_db);
         }
 
         public void Save()

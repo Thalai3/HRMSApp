@@ -30,7 +30,7 @@ namespace HRMS.Models
         [DataType(DataType.DateTime)]
         public DateTime CreatedDateTime { get; set; }
         [DataType(DataType.DateTime)]
-        public DateTime ModifiedDateTime { get; set; }
+        public DateTime? ModifiedDateTime { get; set; }
     }
 
     public class PayElementMaster
@@ -42,7 +42,7 @@ namespace HRMS.Models
         [StringLength(30, MinimumLength = 3)]
         public string? PayElements { get; set; }
 
-        [StringLength(5, MinimumLength = 2)]
+        [StringLength(10, MinimumLength = 2)]
         public string? ShortName { get; set; }
 
         public bool IsActive { get; set; }

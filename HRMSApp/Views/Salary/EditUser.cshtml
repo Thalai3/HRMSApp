@@ -25,12 +25,13 @@
                     <div class="col-md-4">
                         <div class="from-group">
                             <div class="row">
-                                <div class="col-md-2"></div>
+                                <div class="col-md-2 invisible">
+                                    <input asp-for="@Model.PayElementId" class="form-control" />
+                                </div>
                                 <div class="col-md-8">
                                     <label asp-for="@Model.PayElements" calss="control-label">PayElement</label>
                                     <input asp-for="@Model.PayElements" required class="form-control" />
                                     <span asp-validation-for="@Model.PayElements" class="text-danger"></span>
-
                                 </div>
                                 <div class="col-md-2">
                                     <input checked="checked" asp-for="@Model.IsActive" name="isActive" type="checkbox" value="true" style="width: 30px; height: 30px;margin-top:22px" />
@@ -41,6 +42,24 @@
                     <div class="col-md-4"></div>
                 </div>
                 <br />
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <div class="from-group">
+                            <div class="row">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8">
+                                    <label asp-for="@Model.ShortName" calss="control-label">ShortName</label>
+                                    <input asp-for="@Model.ShortName" required class="form-control" />
+                                    <span asp-validation-for="@Model.ShortName" class="text-danger"></span>
+
+                                </div>
+                                <div class="col-md-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
             </div>
         </form>
 

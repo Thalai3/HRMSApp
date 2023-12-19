@@ -40,7 +40,7 @@ namespace HRMS.Models
         [StringLength(30, MinimumLength = 3)]
         public string? LeavePolicys { get; set; }
 
-        [StringLength(5, MinimumLength = 2)]
+        [StringLength(10, MinimumLength = 2)]
         public string? ShortName { get; set; }
         public bool IsActive { get; set; }
         public int? CreatedBy { get; set; }
