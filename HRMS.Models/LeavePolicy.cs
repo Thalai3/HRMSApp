@@ -14,7 +14,7 @@ namespace HRMS.Models
         public string? EmployeeId { get; set; }
        
         //Add foreign Key
-        public string? LeavePolicyId { get; set; }
+        public int? LeavePolicyId { get; set; }
         [ForeignKey("LeavePolicyId")]
         public LeavePolicyMaster LeavePolicyMaster { get; set; }
 
@@ -40,6 +40,8 @@ namespace HRMS.Models
         [StringLength(30, MinimumLength = 3)]
         public string? LeavePolicys { get; set; }
 
+        [StringLength(5, MinimumLength = 2)]
+        public string? ShortName { get; set; }
         public bool IsActive { get; set; }
         public int? CreatedBy { get; set; }
         public int? ModifiedBy { get; set; }

@@ -13,7 +13,7 @@ namespace HRMSApp.Controllers
         }
         public IActionResult Index()
         {
-            var User = _db.city.GetAll().ToList();
+            var User = _db.salary.GetAll().ToList();
 
             return View(User);
         }
@@ -22,11 +22,11 @@ namespace HRMSApp.Controllers
         {
             return View();
         }
-        public IActionResult CreateUser(CityMaster cityMaster)
+        public IActionResult CreateUser(PayElementMaster Pay)
         {
-            cityMaster.CreatedDateTime = DateTime.Now;
+            Pay.CreatedDateTime = DateTime.Now;
 
-            _db.city.Add(cityMaster);
+            _db.salary.Add(Pay);
             _db.Save();
 
             TempData["success"] = "Candidate Added Successfully";
@@ -42,7 +42,7 @@ namespace HRMSApp.Controllers
                 return NotFound();
             }
 
-            var user = _db.city.Get(U => U.Id == id);
+            var user = _db.salary.Get(U => U.PayElementId == id);
 
             if (user == null)
             {
@@ -52,12 +52,12 @@ namespace HRMSApp.Controllers
             return View(user);
         }
         [HttpPost]
-        public IActionResult EditUser(CityMaster cityMaster)
+        public IActionResult EditUser(PayElementMaster Pay)
         {
 
-            cityMaster.ModifiedDateTime = DateTime.Now;
+            Pay.ModifiedDateTime = DateTime.Now;
 
-            _db.city.Update(cityMaster);
+            _db.salary.Update(Pay);
             _db.Save();
 
             return RedirectToAction("Index");
@@ -68,11 +68,11 @@ namespace HRMSApp.Controllers
         //[ValidateAntiForgeryToken]
         public IActionResult Remove(int id)
         {
-            var User = _db.city.Get(E => E.Id == id);
+            var pay = _db.salary.Get(E => E.PayElementId == id);
 
             if (User != null)
             {
-                _db.city.Remove(User);
+                _db.salary.Remove(pay);
             }
 
             _db.Save();

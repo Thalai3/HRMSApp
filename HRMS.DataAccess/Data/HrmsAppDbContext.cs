@@ -1,5 +1,6 @@
 ﻿using HRMS.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Cryptography.X509Certificates;
 
 
 namespace HRMS.DataAccess.Data
@@ -58,6 +59,7 @@ namespace HRMS.DataAccess.Data
                 {
                     LeavePolicyId = 1,
                     LeavePolicys = "Casual",
+                    ShortName="CL",
                     IsActive = true,
                     CreatedBy = 1,
                     ModifiedBy = 0,
@@ -68,6 +70,7 @@ namespace HRMS.DataAccess.Data
                 {
                     LeavePolicyId = 2,
                     LeavePolicys = "Medical",
+                    ShortName ="ML",
                     IsActive = true,
                     CreatedBy = 1,
                     ModifiedBy = 0,
@@ -77,7 +80,8 @@ namespace HRMS.DataAccess.Data
                 new LeavePolicyMaster
                 {
                     LeavePolicyId = 3,
-                    LeavePolicys = "Special",
+                    LeavePolicys = "Special Leave",
+                    ShortName="SL",
                     IsActive = false,
                     CreatedBy = 1,
                     ModifiedBy = 0,
@@ -91,6 +95,7 @@ namespace HRMS.DataAccess.Data
                 {
                     PayElementId = 1,
                     PayElements = "Basic Salary",
+                    ShortName = "Basic",
                     IsActive = true,
                     CreatedBy = 1,
                     ModifiedBy = 0,
@@ -101,6 +106,7 @@ namespace HRMS.DataAccess.Data
                 {
                     PayElementId = 2,
                     PayElements = "Convaeyance Allownce",
+                    ShortName = "CA",
                     IsActive = true,
                     CreatedBy = 1,
                     ModifiedBy = 0,
@@ -111,6 +117,7 @@ namespace HRMS.DataAccess.Data
                 {
                     PayElementId = 3,
                     PayElements = "House Rent Allownce",
+                    ShortName = "Rent",
                     IsActive = false,
                     CreatedBy = 1,
                     ModifiedBy = 0,
@@ -121,6 +128,7 @@ namespace HRMS.DataAccess.Data
                 {
                     PayElementId = 4,
                     PayElements = "Special Allownce",
+                    ShortName = "Special",
                     IsActive = false,
                     CreatedBy = 1,
                     ModifiedBy = 0,

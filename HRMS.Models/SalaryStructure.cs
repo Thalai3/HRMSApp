@@ -14,7 +14,7 @@ namespace HRMS.Models
         public string? EmployeeId { get; set; }   
         
         // Add Foreign Key
-        public string? PayElementId { get; set; }
+        public int? PayElementId { get; set; }
         [ForeignKey("PayElementId")]
         public PayElementMaster PayElementMaster { get; set; }
 
@@ -41,6 +41,9 @@ namespace HRMS.Models
 
         [StringLength(30, MinimumLength = 3)]
         public string? PayElements { get; set; }
+
+        [StringLength(5, MinimumLength = 2)]
+        public string? ShortName { get; set; }
 
         public bool IsActive { get; set; }
         public int? CreatedBy { get; set; }

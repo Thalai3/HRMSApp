@@ -15,6 +15,8 @@ namespace HRMS.DataAccess.Repository.IRepository
         IStateRepo state { get; }
         IRoleRepo role { get; }
         ICityRepo city { get; }
+        IPolicyRepo policy { get; }
+        ISalaryRepo salary { get; }
         void Save();
     }
 }

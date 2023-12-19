@@ -1,0 +1,76 @@
+﻿@model IEnumerable<PayElementMaster>
+
+@{
+    ViewData["Title"] = "Index";
+}
+@* <h5>User</h5>
+
+<p>
+    <a asp-action="Create" class="btn btn-info"><i class="fa-solid fa-plus fa-beat"></i></a>
+    <a asp-action="Input" class="btn btn-info"><i class="fa-solid fa-plus fa-beat"></i></a>
+</p>
+ *@
+@* <div class="container-fluid">
+  <h5 style="text-align:center">Users</h5>
+    <a asp-controller="User" asp-action="Create" class="btn btn-success my-sm-0">Create</a>
+ </div> *@
+
+<div class="row">
+    <div class="col-md-11">
+        <h5 style="text-align:center">Salary</h5>
+    </div>
+    <div class="col-md-1">
+        @*<button type="submit" class="btn btn-primary">Save</button> *@
+        <a asp-controller="Salary" asp-action="Create" class="btn btn-success float-end">Create</a>
+    </div>
+</div>
+<hr />
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+    }
+</style>
+<div class="container">
+    <table id="table" class="table">
+        <thead>
+            <tr>
+                <th>
+                    Salary
+                </th>
+                <th>
+                    IsActive
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PayElements)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsActive)
+                    </td>
+                    <td>
+                        <a asp-action="EditUser" asp-route-id="@item.PayElementId" class="btn btn-primary"><i class="fa-solid fa-pen fa-bounce"></i></a>
+                        <a asp-action="Details" asp-route-id="@item.PayElementId" class="btn btn-info"><i class="fa-solid fa-user fa-shake"></i></a>
+                        <a asp-action="Remove" asp-route-id="@item.PayElementId" class="btn btn-danger"><i class="fa-solid fa-circle-xmark fa-fade"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts{
+    <script>
+        $('.table').DataTable();
+    </script>
+}
+

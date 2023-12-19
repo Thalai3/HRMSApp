@@ -17,6 +17,8 @@ namespace HRMS.DataAccess.Repository
         public IStateRepo state { get; private set; }
         public IRoleRepo role { get; private set; }
         public ICityRepo city { get; private set; }
+        public IPolicyRepo policy { get; private set; }
+        public ISalaryRepo salary { get; private set; }
         public UnitOfWork(HrmsAppDbContext db)
         {
                 _db = db;
@@ -27,6 +29,8 @@ namespace HRMS.DataAccess.Repository
             state = new StateRepo(_db);
             role = new RoleRepo(_db);
             city = new CityRepo(_db);
+            policy = new PolicyRepo(_db);
+            salary = new SalaryRepo(_db);
         }
 
         public void Save()

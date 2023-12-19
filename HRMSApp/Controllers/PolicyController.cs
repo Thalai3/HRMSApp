@@ -13,7 +13,7 @@ namespace HRMSApp.Controllers
         }
         public IActionResult Index()
         {
-            var User = _db.city.GetAll().ToList();
+            var User = _db.policy.GetAll().ToList();
 
             return View(User);
         }
@@ -22,11 +22,11 @@ namespace HRMSApp.Controllers
         {
             return View();
         }
-        public IActionResult CreateUser(CityMaster cityMaster)
+        public IActionResult CreateUser(LeavePolicyMaster leavePolicy)
         {
-            cityMaster.CreatedDateTime = DateTime.Now;
+            leavePolicy.CreatedDateTime = DateTime.Now;
 
-            _db.city.Add(cityMaster);
+            _db.policy.Add(leavePolicy);
             _db.Save();
 
             TempData["success"] = "Candidate Added Successfully";
@@ -42,7 +42,7 @@ namespace HRMSApp.Controllers
                 return NotFound();
             }
 
-            var user = _db.city.Get(U => U.Id == id);
+            var user = _db.policy.Get(U => U.LeavePolicyId == id);
 
             if (user == null)
             {
@@ -52,12 +52,12 @@ namespace HRMSApp.Controllers
             return View(user);
         }
         [HttpPost]
-        public IActionResult EditUser(CityMaster cityMaster)
+        public IActionResult EditUser(LeavePolicyMaster leavePolicy)
         {
 
-            cityMaster.ModifiedDateTime = DateTime.Now;
+            leavePolicy.ModifiedDateTime = DateTime.Now;
 
-            _db.city.Update(cityMaster);
+            _db.policy.Update(leavePolicy);
             _db.Save();
 
             return RedirectToAction("Index");
@@ -68,11 +68,11 @@ namespace HRMSApp.Controllers
         //[ValidateAntiForgeryToken]
         public IActionResult Remove(int id)
         {
-            var User = _db.city.Get(E => E.Id == id);
+            var Policy = _db.policy.Get(E => E.LeavePolicyId == id);
 
             if (User != null)
             {
-                _db.city.Remove(User);
+                _db.policy.Remove(Policy);
             }
 
             _db.Save();
