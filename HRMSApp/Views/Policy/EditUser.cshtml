@@ -25,7 +25,9 @@
                     <div class="col-md-4">
                         <div class="from-group">
                             <div class="row">
-                                <div class="col-md-2"></div>
+                                <div class="col-md-2 invisible">
+                                    <input asp-for="@Model.LeavePolicyId" class="form-control" />
+                                </div>
                                 <div class="col-md-8">
                                     <label asp-for="@Model.LeavePolicys" calss="control-label">LeavePolicy</label>
                                     <input asp-for="@Model.LeavePolicys" required class="form-control" />

@@ -1,4 +1,4 @@
-﻿@model User
+﻿@model SalaryStructure
 @{
     ViewData["Title"] = "CreateUser";
 }
@@ -24,18 +24,18 @@
                     <div class="col-md-2"></div>                    
                     <div class="col-md-3">
                         <div class="from-group">
-                            <label asp-for="@Model.FirstName" calss="control-label">FirstName</label>
-                            <input asp-for="@Model.FirstName" required class="form-control" />
-                            <span asp-validation-for="@Model.FirstName" class="text-danger"></span>
+                            <label asp-for="@Model.EmployeeId" calss="control-label">FirstName</label>
+                            <input asp-for="@Model.EmployeeId" required class="form-control" />
+                            <span asp-validation-for="@Model.EmployeeId" class="text-danger"></span>
                         </div>
                     </div>
                     <div class="col-md-1"></div>
                     <div class="col-md-3">
-                        <div class="form-group">
+                       @*  <div class="form-group">
                             <label asp-for="@Model.LastName" class="control-label">LastName</label>
                             <input asp-for="@Model.LastName" required class="form-control" />
                             <span asp-validation-for="@Model.LastName" class="text-danger"></span>
-                        </div>
+                        </div> *@
                     </div>
                     <div class="col-md-3"></div>                
                 </div>
@@ -44,18 +44,18 @@
                 <div class="row">
                     <div class="col-md-2"></div>
                     <div class="col-md-3">
-                        <div class="from-group">
+                        @* <div class="from-group">
                             <label asp-for="@Model.DOB" calss="control-label">DOB</label>
                             <input asp-for="@Model.DOB" required class="form-control" />
                             <span asp-validation-for="@Model.DOB" class="text-danger"></span>
-                        </div>
+                        </div> *@
                     </div>
                     <div class="col-md-1"></div>
                     <div class="col-md-3">
-                        @* <div class="form-group"> *@
-                            @* <label asp-for="@Model.BloodGroup" class="control-label">BloodGroup</label>
+                        @* <div class="form-group"> 
+                             <label asp-for="@Model.BloodGroup" class="control-label">BloodGroup</label>
                             <input asp-for="@Model.BloodGroup" required class="form-control" />
-                            <span asp-validation-for="@Model.BloodGroup" class="text-danger"></span> *@
+                            <span asp-validation-for="@Model.BloodGroup" class="text-danger"></span> 
                             <div class="dropdown">
                                 <label asp-for="@Model.BloodGroup" calss="control-label">BloodGroup</label>
                                 <select asp-for="@Model.BloodGroup" class="form-control" data-bs-toggle="dropdown">
@@ -68,14 +68,14 @@
                                     <option value="AB-">AB-</option>
                                     <option value="O+">O+</option>
                                     <option value="O-">O-</option>
-                                    @* @foreach (var Dep in ViewBag.Department as List<string>)
+                                     @foreach (var Dep in ViewBag.Department as List<string>)
                                     {
                                         <option value="@Dep">@Dep</option>
-                                    } *@
+                                    } 
                                 </select>
                                 <span asp-validation-for="@Model.BloodGroup" class="text-danger"></span>
                             </div>
-                        @* </div> *@
+                       </div> *@
                     </div>
                     <div class="col-md-3"></div>
                 </div>
@@ -84,19 +84,19 @@
                 <div class="row">
                     <div class="col-md-2"></div>
                     <div class="col-md-3">
-                        <div class="from-group">
+                        @* <div class="from-group">
                             <label asp-for="@Model.Email" calss="control-label">Email</label>
                             <input asp-for="@Model.Email" required class="form-control" />
                             <span asp-validation-for="@Model.Email" class="text-danger"></span>
-                        </div>
+                        </div> *@
                     </div>
                     <div class="col-md-2"></div>
                     <div class="col-md-3">
-                        <div class="form-group">
+                       @*  <div class="form-group">
                             <label asp-for="@Model.Password" class="control-label">Password</label>
                             <input asp-for="@Model.Password" required class="form-control" />
                             <span asp-validation-for="@Model.Password" class="text-danger"></span>
-                        </div>
+                        </div> *@
                     </div>
                     <div class="col-md-2"></div>
                 </div>
@@ -105,32 +105,28 @@
                 <div class="row">
                     <div class="col-md-2"></div>
                     <div class="col-md-2">
-                        <div class="from-group">
+                       @*  <div class="from-group">
                             <label asp-for="@Model.Mobile" calss="control-label">Mobile</label>
                             <input asp-for="@Model.Mobile" required class="form-control" />
                             <span asp-validation-for="@Model.Mobile" class="text-danger"></span>
-                        </div>
+                        </div> *@
                     </div>
                     <div class="col-md-1"></div>
                     <div class="col-md-2">
-                        <div class="form-group">
+                       @*  <div class="form-group">
                             <label asp-for="@Model.AltMobile" class="control-label">Alternate Mobile</label>
                             <input asp-for="@Model.Mobile" required class="form-control" />
                             <span asp-validation-for="@Model.AltMobile" class="text-danger"></span>
-                        </div>
+                        </div> *@
                     </div>
                     <div class="col-md-1"></div>
                     <div class="col-md-2">
                         <div class="dropdown">
-                            <label asp-for="@Model.Status" calss="control-label">Status</label>
-                            <select asp-for="@Model.Status" class="form-control" data-bs-toggle="dropdown">
-                                <option value="">--Select Status--</option>                              
-                                @foreach (var Status in ViewBag.Status as List<String>)
-                                {
-                                    <option value="@Status">@Status</option>
-                                }
+                            <label asp-for="@Model.PayElementId" calss="control-label">PayElement</label>
+                            <select asp-for="@Model.PayElementId" asp-items="ViewBag.status" class="form-select" data-bs-toggle="dropdown">
+                                <option value="">--Select PayElement--</option>                                               
                             </select>
-                            <span asp-validation-for="@Model.Status" class="text-danger"></span>
+                            <span asp-validation-for="@Model.PayElementId" class="text-danger"></span>
                         </div>                      
                     </div>
                     <div class="col-md-2"></div>
@@ -140,18 +136,18 @@
                 <div class="row">
                     <div class="col-md-2"></div>
                     <div class="col-md-4">
-                        <div class="form-group">
+                        @* <div class="form-group">
                             <label asp-for="@Model.Address" class="control-label">Address</label>
                             <textarea type="text" asp-for="@Model.Address" required class="form-control"></textarea>
                             <span asp-validation-for="@Model.Address" class="text-danger"></span>
-                        </div>
+                        </div> *@
                     </div>
                     <div class="col-md-4">
-                        <div class="form-group">
+                       @*  <div class="form-group">
                             <label asp-for="@Model.AltAddress" class="control-label">Alternate Address</label>
                             <textarea type="text" asp-for="@Model.AltAddress" required class="form-control"></textarea>
                             <span asp-validation-for="@Model.AltAddress" class="text-danger"></span>
-                        </div>
+                        </div> *@
                     </div>
                     <div class="col-md-2"></div>
                 </div>

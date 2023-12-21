@@ -48,9 +48,7 @@ namespace HRMS.DataAccess.Repository
 
         public IEnumerable<T> GetList(Expression<Func<T, bool>> filter)
         {
-            IQueryable<T> qurey = dbSet;
-            qurey = qurey.Where(filter);
-            return qurey.ToList();
+            return dbSet.Where(filter).ToList();
         }
     }
 }

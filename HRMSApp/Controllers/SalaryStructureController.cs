@@ -2,6 +2,8 @@
 using HRMS.DataAccess.Repository.IRepository;
 using HRMS.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Generic;
 
 namespace HRMSApp.Controllers
 {
@@ -23,10 +25,27 @@ namespace HRMSApp.Controllers
        
         public IActionResult Create()
         {
-            var status = _tbl.tbl_PayElementMaster.Where(S => S.IsActive == true).Select(E => E.PayElements).ToList();
+            //var status = _tbl.tbl_PayElementMaster.Where(S => S.IsActive == true).Select(E => E.PayElements).ToList();
+            //ViewBag.status = status;
+
+             IEnumerable<SelectListItem> status = _tbl.tbl_PayElementMaster.Where(S => S.IsActive == true)
+                .Select(S => new SelectListItem
+                {
+                   Text = S.PayElements,
+                   Value = S.PayElementId.ToString(),
+                    Selected = S.IsActive
+                }) ;
+            //IEnumerable<SelectListItem> status = _db.salary.GetList().Where(S => S.IsActive == true)
+            //    .Select(S => new SelectListItem
+            //    { 
+            //        Text = S.PayElements,
+            //        Value = S.PayElementId.ToString(),
+            //        Selected = S.IsActive
+            //    });
             ViewBag.status = status;
 
             return View();
+
         }
         public IActionResult CreateUser(SalaryStructure structre)
         {

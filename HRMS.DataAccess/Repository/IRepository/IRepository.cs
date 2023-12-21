@@ -20,5 +20,7 @@ namespace HRMS.DataAccess.Repository.IRepository
         //
         IEnumerable<T> GetList(Expression<Func<T, bool>> filter);
 
+       
+
     }
 }
