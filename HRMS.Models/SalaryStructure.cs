@@ -11,13 +11,12 @@ namespace HRMS.Models
         public int Id { get; set; }
 
         [StringLength(30, MinimumLength = 3)]
-        public string? EmployeeId { get; set; }   
-        
+        public string? EmployeeId { get; set; }
+       
         // Add Foreign Key
         public int? PayElementId { get; set; }
         [ForeignKey("PayElementId")]
         public PayElementMaster PayElementMaster { get; set; }
-
         public int? TotalValue { get; set; }
         public int? Addition { get; set; }
         public int? Deduction { get; set; }

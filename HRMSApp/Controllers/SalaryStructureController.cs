@@ -1,6 +1,7 @@
 ﻿using HRMS.DataAccess.Data;
 using HRMS.DataAccess.Repository.IRepository;
 using HRMS.Models;
+using HRMS.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
@@ -47,14 +48,15 @@ namespace HRMSApp.Controllers
             return View();
 
         }
-        public IActionResult CreateUser(SalaryStructure structre)
+        public IActionResult CreateUser(SalaryStructureVM salary)
         {
-
-            structre.CreatedDateTime = DateTime.Now;    
-
-            _db.salarystructure.Add(structre);
-            _db.Save();
-
+            foreach (var item in salary.structure)
+            {
+                item.CreatedDateTime = DateTime.Now;
+                _db.salarystructure.Add(item);
+                _db.Save();
+            } 
+            
             TempData["success"] = "SalaryStructure Added Successfully";
 
             return RedirectToAction("Index");  
@@ -107,6 +109,26 @@ namespace HRMSApp.Controllers
 
             return RedirectToAction("Index");           
         }
+        public IActionResult Upsert()
+        {
 
+            var structureVM = new SalaryStructureVM
+            {
+                structure = new List<SalaryStructure> { new SalaryStructure() }
+            };
+
+            IEnumerable<SelectListItem> status = _tbl.tbl_PayElementMaster.Where(S => S.IsActive == true)
+               .Select(S => new SelectListItem
+               {
+                   Text = S.PayElements,
+                   Value = S.PayElementId.ToString(),
+                   Selected = S.IsActive
+               });
+            
+            ViewBag.status = status;
+
+            return View(structureVM);
+
+        }
     }
 }

@@ -1,0 +1,138 @@
+﻿@model SalaryStructureVM
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="CreateUser">
+            <div class="row position-sticky">
+                <div class="col-md-11">
+                    <h5 style="margin-left:790px">Salary</h5>
+                </div>
+                <div class="col-md-1">
+                    <button type="submit" class="btn btn-primary w-50">Save</button>
+                    <a asp-controller="Candidates" asp-action="Index" class="btn btn-success float-end">Users</a>
+                </div>
+            </div>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <h5 style="margin-left:790px">Salary Details</h5>
+            <br />
+            <div class="container">
+                <h5>Basic Details</h5>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label asp-for="@Model.user.UserName" class="control-label">Name</label>
+                            <input asp-for="@Model.user.UserName" class="form-control" />
+                            <span asp-validation-for="@Model.user.UserName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        @* <div class="dropdown">
+                            <label asp-for="@Model.PayElementId" calss="control-label">Salarytype</label>
+                            <select asp-for="@Model.PayElementId.PayElements" asp-items="ViewBag.status" class="form-select" data-bs-toggle="dropdown">
+                                <option value="">--Select Salarytype--</option>
+                            </select>
+                            <span asp-validation-for="@Model.PayElementId" class="text-danger"></span>
+                        </div> *@
+                    </div>
+                    <div class="col-md-3"></div>
+                    <div class="col-md-3"></div>
+                </div>
+                <br />                           
+                <h5>Salary</h5>
+                <div id="educationContainer">
+                    @for (var i = 0; i < Model.structure.Count; i++)
+                    {
+                        <button type="button" class="btn btn-warning" id="addEducation"><i class="fa-solid fa-plus fa-beat"></i></button>
+                        <button type="button" class="btn btn-danger" id="undoedu"><i class="fa-solid fa-minus"></i></button>
+                        <div class="row education-group">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label asp-for="structure[i].Addition"></label>
+                                    <input asp-for="structure[i].Addition" class="form-control" />
+                                    <span asp-validation-for="structure[i].Addition" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label asp-for="structure[i].Deduction"></label>
+                                    <input asp-for="structure[i].Deduction" class="form-control" />
+                                    <span asp-validation-for="structure[i].Deduction" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label asp-for="structure[i].TotalValue"></label>
+                                    <input asp-for="structure[i].TotalValue" class="form-control" />
+                                    <span asp-validation-for="structure[i].TotalValue" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-3"> 
+                                <div class="dropdown">
+                                   <label asp-for="structure[i].PayElementId" calss="control-label">Salarytype</label>
+                                     <select asp-for="structure[i].PayElementId" asp-items="ViewBag.status" class="form-select" data-bs-toggle="dropdown">
+                                     <option value="">--Select Salarytype--</option>
+                                     </select>
+                                   <span asp-validation-for="structure[i].PayElementId" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+                <br />                              
+            </div>
+        </form>
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script>
+            $(document).ready(function () {
+               
+                var educationContainer = $('#educationContainer');
+                var educationGroupTemplate = $('.education-group:first').clone(); // Clone the first row as a template
+                var addedEducationGroups = []; // To keep track of added education groups
+
+                $('#addEducation').on('click', function () {
+                    // Validate existing fields before adding a new row
+                    if (validateEducationFields(addedEducationGroups)) {
+                        var newEducationGroup = educationGroupTemplate.clone(); // Clone the template
+                        educationContainer.append(newEducationGroup);
+                        addedEducationGroups.push(newEducationGroup); // Add the new group to the tracking array
+                    } else {
+                        alert('Please fill in all required fields in the existing education section.');
+                    }
+                });
+              
+                $('#undoedu').on('click', function () {
+                    // Undo last addition in education
+                    if (addedEducationGroups.length > 0) {
+                        addedEducationGroups.pop().remove();
+                    }
+                });
+                
+                function validateEducationFields(groups) {
+                    // Loop through each group and check if required fields are filled
+                    for (var i = 0; i < groups.length; i++) {
+                        var currentGroup = groups[i];
+                        var requiredInputs = currentGroup.find('.required'); // Add a "required" class to your required fields
+
+                        for (var j = 0; j < requiredInputs.length; j++) {
+                            if ($(requiredInputs[j]).val() === '') {
+                                return { isValid: false, message: 'Please fill in all required fields.' };
+                            }
+                        }
+                    }
+                    return { isValid: true };
+                }
+
+            });
+
+        </script>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

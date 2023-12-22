@@ -5,7 +5,8 @@ namespace HRMS.Models.ViewModels
 {
     public class SalaryStructureVM
     {
-        public SalaryStructure structure { get; set; }
-        public IEnumerable<SelectListItem> salarytype { get; set; }
+        public User user { get; set; }
+        public List<SalaryStructure> structure { get; set; }
+        //public PayElementMaster PayElementId { get; set; }
     }
 }
