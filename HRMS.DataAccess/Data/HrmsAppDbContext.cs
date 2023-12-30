@@ -1,17 +1,18 @@
 ﻿using HRMS.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Security.Cryptography.X509Certificates;
-
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace HRMS.DataAccess.Data
 {
-    public class HrmsAppDbContext : DbContext
+    public class HrmsAppDbContext : IdentityDbContext<IdentityUser>
     {
         public HrmsAppDbContext(DbContextOptions<HrmsAppDbContext> options) : base(options)
         {
 
         }
 
+        public DbSet<HrmsUser> HrmsAppUsers { get; set; }
         public DbSet<Candidate> Candidates { get; set; }
         public DbSet<Qualifications> tbl_Qualification { get; set; }
         public DbSet<Experiences> tbl_Experience { get; set; }
@@ -43,6 +44,9 @@ namespace HRMS.DataAccess.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            base.OnModelCreating(modelBuilder); 
+
             // Define the relationship between 
             modelBuilder.Entity<Candidate>()
                 .HasMany(b => b.CandidateExperience)

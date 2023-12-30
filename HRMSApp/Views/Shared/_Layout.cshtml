@@ -31,32 +31,36 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li>
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Candidates" asp-action="Index">Candidate</a>
+                            <a class="nav-link text-dark" asp-area="Admin" asp-controller="Candidates" asp-action="Index">Candidate</a>
                         </li>                                        
                         <li>
-                            <div class="dropdown">
-                                <div class="btn dropdown-toggle" id="Mastermenu" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Master
+                            @if (User.IsInRole(StaticDetails.Role_Admin))
+                            {
+                                <div class="dropdown">
+                                    <div class="btn dropdown-toggle" id="Mastermenu" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Master
+                                    </div>
+                                    <ul class="dropdown-menu" aria-labelledby="Mastermenu">
+                                        <li><a class="dropdown-item" asp-area="Admin" asp-controller="City" asp-action="Index">City</a></li>
+                                        <li><a class="dropdown-item" asp-area="Admin" asp-controller="State" asp-action="Index">State</a></li>
+                                        <li><a class="dropdown-item" asp-area="Admin" asp-controller="Status" asp-action="Index">Status</a></li>
+                                        <li><a class="dropdown-item" asp-area="Admin" asp-controller="Role" asp-action="Index">Role</a></li>
+                                        <li><a class="dropdown-item" asp-area="User" asp-controller="User" asp-action="Index">User</a></li>
+                                        <li><a class="dropdown-item" asp-area="Admin" asp-controller="Salary" asp-action="Index">Salary</a></li>
+                                        <li><a class="dropdown-item" asp-area="Admin" asp-controller="Policy" asp-action="Index">Policy</a></li>
+                                    </ul>
                                 </div>
-                                <ul class="dropdown-menu" aria-labelledby="Mastermenu">
-                                    <li><a class="dropdown-item" asp-controller="City" asp-action="Index">City</a></li>
-                                    <li><a class="dropdown-item" asp-controller="State" asp-action="Index">State</a></li>
-                                    <li><a class="dropdown-item" asp-controller="Status" asp-action="Index">Status</a></li>
-                                    <li><a class="dropdown-item" asp-controller="Role" asp-action="Index">Role</a></li>
-                                    <li><a class="dropdown-item" asp-controller="User" asp-action="Index">User</a></li>
-                                    <li><a class="dropdown-item" asp-controller="Salary" asp-action="Index">Salary</a></li>
-                                    <li><a class="dropdown-item" asp-controller="Policy" asp-action="Index">Policy</a></li>
-                                </ul>
-                            </div>
-                        </li>                     
+                            }                           
+                        </li>                    
                     </ul>
-                    <a asp-controller="Home" asp-action="Home" class="btn btn-danger">Logout</a>
+                    <Partial name="_LoginPartial" />
+                   @*  <a asp-controller="Home" asp-action="Home" class="btn btn-danger">Logout</a> *@
                 </div>
             </div>
         </nav>

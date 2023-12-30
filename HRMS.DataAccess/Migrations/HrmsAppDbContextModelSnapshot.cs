@@ -300,7 +300,7 @@ namespace HRMS.DataAccess.Migrations
                         {
                             Id = 1,
                             CreatedBy = 1,
-                            CreatedDateTime = new DateTime(2023, 12, 19, 17, 43, 41, 396, DateTimeKind.Local).AddTicks(2380),
+                            CreatedDateTime = new DateTime(2023, 12, 28, 11, 1, 54, 2, DateTimeKind.Local).AddTicks(2384),
                             EmployeeId = "Thlai123Dotnet",
                             IsActive = true,
                             LeavePolicyId = 1,
@@ -311,7 +311,7 @@ namespace HRMS.DataAccess.Migrations
                         {
                             Id = 2,
                             CreatedBy = 1,
-                            CreatedDateTime = new DateTime(2023, 12, 19, 17, 43, 41, 396, DateTimeKind.Local).AddTicks(2383),
+                            CreatedDateTime = new DateTime(2023, 12, 28, 11, 1, 54, 2, DateTimeKind.Local).AddTicks(2387),
                             EmployeeId = "Thlai123Dotnet",
                             IsActive = true,
                             LeavePolicyId = 2,
@@ -322,7 +322,7 @@ namespace HRMS.DataAccess.Migrations
                         {
                             Id = 3,
                             CreatedBy = 1,
-                            CreatedDateTime = new DateTime(2023, 12, 19, 17, 43, 41, 396, DateTimeKind.Local).AddTicks(2385),
+                            CreatedDateTime = new DateTime(2023, 12, 28, 11, 1, 54, 2, DateTimeKind.Local).AddTicks(2388),
                             EmployeeId = "Thlai123Dotnet",
                             IsActive = true,
                             LeavePolicyId = 3,
@@ -371,7 +371,7 @@ namespace HRMS.DataAccess.Migrations
                         {
                             LeavePolicyId = 1,
                             CreatedBy = 1,
-                            CreatedDateTime = new DateTime(2023, 12, 19, 17, 43, 41, 396, DateTimeKind.Local).AddTicks(2133),
+                            CreatedDateTime = new DateTime(2023, 12, 28, 11, 1, 54, 2, DateTimeKind.Local).AddTicks(1991),
                             IsActive = true,
                             LeavePolicys = "Casual",
                             ModifiedBy = 0,
@@ -381,7 +381,7 @@ namespace HRMS.DataAccess.Migrations
                         {
                             LeavePolicyId = 2,
                             CreatedBy = 1,
-                            CreatedDateTime = new DateTime(2023, 12, 19, 17, 43, 41, 396, DateTimeKind.Local).AddTicks(2144),
+                            CreatedDateTime = new DateTime(2023, 12, 28, 11, 1, 54, 2, DateTimeKind.Local).AddTicks(2006),
                             IsActive = true,
                             LeavePolicys = "Medical",
                             ModifiedBy = 0,
@@ -391,7 +391,7 @@ namespace HRMS.DataAccess.Migrations
                         {
                             LeavePolicyId = 3,
                             CreatedBy = 1,
-                            CreatedDateTime = new DateTime(2023, 12, 19, 17, 43, 41, 396, DateTimeKind.Local).AddTicks(2146),
+                            CreatedDateTime = new DateTime(2023, 12, 28, 11, 1, 54, 2, DateTimeKind.Local).AddTicks(2009),
                             IsActive = false,
                             LeavePolicys = "Special Leave",
                             ModifiedBy = 0,
@@ -439,7 +439,7 @@ namespace HRMS.DataAccess.Migrations
                         {
                             PayElementId = 1,
                             CreatedBy = 1,
-                            CreatedDateTime = new DateTime(2023, 12, 19, 17, 43, 41, 396, DateTimeKind.Local).AddTicks(2328),
+                            CreatedDateTime = new DateTime(2023, 12, 28, 11, 1, 54, 2, DateTimeKind.Local).AddTicks(2258),
                             IsActive = true,
                             ModifiedBy = 0,
                             PayElements = "Basic Salary",
@@ -449,7 +449,7 @@ namespace HRMS.DataAccess.Migrations
                         {
                             PayElementId = 2,
                             CreatedBy = 1,
-                            CreatedDateTime = new DateTime(2023, 12, 19, 17, 43, 41, 396, DateTimeKind.Local).AddTicks(2331),
+                            CreatedDateTime = new DateTime(2023, 12, 28, 11, 1, 54, 2, DateTimeKind.Local).AddTicks(2260),
                             IsActive = true,
                             ModifiedBy = 0,
                             PayElements = "Convaeyance Allownce",
@@ -459,7 +459,7 @@ namespace HRMS.DataAccess.Migrations
                         {
                             PayElementId = 3,
                             CreatedBy = 1,
-                            CreatedDateTime = new DateTime(2023, 12, 19, 17, 43, 41, 396, DateTimeKind.Local).AddTicks(2333),
+                            CreatedDateTime = new DateTime(2023, 12, 28, 11, 1, 54, 2, DateTimeKind.Local).AddTicks(2262),
                             IsActive = false,
                             ModifiedBy = 0,
                             PayElements = "House Rent Allownce",
@@ -469,7 +469,7 @@ namespace HRMS.DataAccess.Migrations
                         {
                             PayElementId = 4,
                             CreatedBy = 1,
-                            CreatedDateTime = new DateTime(2023, 12, 19, 17, 43, 41, 396, DateTimeKind.Local).AddTicks(2334),
+                            CreatedDateTime = new DateTime(2023, 12, 28, 11, 1, 54, 2, DateTimeKind.Local).AddTicks(2264),
                             IsActive = false,
                             ModifiedBy = 0,
                             PayElements = "Special Allownce",
@@ -588,7 +588,7 @@ namespace HRMS.DataAccess.Migrations
                             Id = 1,
                             Addition = 2000,
                             CreatedBy = 1,
-                            CreatedDateTime = new DateTime(2023, 12, 19, 17, 43, 41, 396, DateTimeKind.Local).AddTicks(2354),
+                            CreatedDateTime = new DateTime(2023, 12, 28, 11, 1, 54, 2, DateTimeKind.Local).AddTicks(2354),
                             Deduction = 2000,
                             EmployeeId = "Thlai123Dotnet",
                             IsActive = true,
@@ -601,7 +601,7 @@ namespace HRMS.DataAccess.Migrations
                             Id = 2,
                             Addition = 2000,
                             CreatedBy = 1,
-                            CreatedDateTime = new DateTime(2023, 12, 19, 17, 43, 41, 396, DateTimeKind.Local).AddTicks(2357),
+                            CreatedDateTime = new DateTime(2023, 12, 28, 11, 1, 54, 2, DateTimeKind.Local).AddTicks(2357),
                             Deduction = 2000,
                             EmployeeId = "Thlai123Dotnet",
                             IsActive = true,
@@ -614,7 +614,7 @@ namespace HRMS.DataAccess.Migrations
                             Id = 3,
                             Addition = 2000,
                             CreatedBy = 1,
-                            CreatedDateTime = new DateTime(2023, 12, 19, 17, 43, 41, 396, DateTimeKind.Local).AddTicks(2359),
+                            CreatedDateTime = new DateTime(2023, 12, 28, 11, 1, 54, 2, DateTimeKind.Local).AddTicks(2360),
                             Deduction = 2000,
                             EmployeeId = "Thlai123Dotnet",
                             IsActive = true,
@@ -778,6 +778,238 @@ namespace HRMS.DataAccess.Migrations
                     b.ToTable("tbl_User");
                 });
 
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
+
+                    b.UseTphMappingStrategy();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("RoleId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("LoginProvider")
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("HRMS.Models.HrmsUser", b =>
+                {
+                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Name")
+                        .HasColumnType("int");
+
+                    b.Property<string>("PostalCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("State")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("StreetAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasDiscriminator().HasValue("HrmsUser");
+                });
+
             modelBuilder.Entity("HRMS.Models.CandidateEducation", b =>
                 {
                     b.HasOne("HRMS.Models.Candidate", "Candidate")
@@ -812,6 +1044,57 @@ namespace HRMS.DataAccess.Migrations
                         .HasForeignKey("PayElementId");
 
                     b.Navigation("PayElementMaster");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("HRMS.Models.Candidate", b =>
